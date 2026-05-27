@@ -1,0 +1,357 @@
+import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
+
+const NAV_LINKS = ["Home", "Academic", "FAQ", "About", "Contact Us"];
+
+function HamburgerIcon({ open }) {
+  return (
+    <div style={{ width: 32, height: 32, display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", cursor: "pointer" }}>
+      <span style={{
+        display: "block", width: "22px", height: "2px", background: "#C9A84C", marginBottom: "5px",
+        transform: open ? "translateY(7px) rotate(45deg)" : "translateY(0)",
+        transition: "transform 0.3s ease",
+      }} />
+      <span style={{
+        display: "block", width: "22px", height: "2px", background: "#C9A84C", marginBottom: "5px",
+        opacity: open ? 0 : 1,
+        transition: "opacity 0.2s ease",
+      }} />
+      <span style={{
+        display: "block", width: "22px", height: "2px", background: "#C9A84C",
+        transform: open ? "translateY(-7px) rotate(-45deg)" : "translateY(0)",
+        transition: "transform 0.3s ease",
+      }} />
+    </div>
+  );
+}
+
+function ZenLogo({ size = 220 }) {
+  return (
+    <img
+      src="/assets/Zenlogo.png"
+      alt="ZenCoders Logo"
+      style={{ width: size, height: size, objectFit: "contain" }}
+    />
+  );
+}
+
+function StarField() {
+  const canvasRef = useRef(null);
+  const animFrameRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    let W = window.innerWidth, H = window.innerHeight;
+    canvas.width = W; canvas.height = H;
+
+    const stars = Array.from({ length: 280 }, () => ({
+      x: Math.random() * W, y: Math.random() * H,
+      r: Math.random() * 1.4 + 0.2,
+      speed: Math.random() * 0.25 + 0.05,
+      twinkle: Math.random() * Math.PI * 2,
+      twinkleSpeed: Math.random() * 0.03 + 0.01,
+    }));
+
+    const draw = () => {
+      ctx.clearRect(0, 0, W, H);
+      stars.forEach((s) => {
+        s.twinkle += s.twinkleSpeed;
+        const alpha = 0.4 + 0.6 * Math.abs(Math.sin(s.twinkle));
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${alpha})`;
+        ctx.fill();
+        s.y -= s.speed;
+        if (s.y < -2) { s.y = H + 2; s.x = Math.random() * W; }
+      });
+      animFrameRef.current = requestAnimationFrame(draw);
+    };
+    draw();
+
+    const resize = () => { W = window.innerWidth; H = window.innerHeight; canvas.width = W; canvas.height = H; };
+    window.addEventListener("resize", resize);
+    return () => { cancelAnimationFrame(animFrameRef.current); window.removeEventListener("resize", resize); };
+  }, []);
+
+  return <canvas ref={canvasRef} style={{ position: "fixed", inset: 0, width: "100%", height: "100%", pointerEvents: "none", zIndex: 0 }} />;
+}
+
+export default function Hero() {
+  const heroRef = useRef(null);
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [winWidth, setWinWidth] = useState(window.innerWidth);
+  const [winHeight, setWinHeight] = useState(window.innerHeight);
+
+  useEffect(() => {
+    const onResize = () => { setWinWidth(window.innerWidth); setWinHeight(window.innerHeight); };
+    window.addEventListener("resize", onResize);
+    return () => window.removeEventListener("resize", onResize);
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => {
+      // Trigger completes over 40% of viewport height (reduced from 60%)
+      const progress = Math.min(window.scrollY / (winHeight * 0.4), 1);
+      setScrollProgress(progress);
+      if (progress > 0.05) setMenuOpen(false);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [winHeight]);
+
+  const isMobile = winWidth < 768;
+  const heroLogoSize = isMobile ? 160 : 220;
+  const navLogoSize = 34;
+  const logoSize = heroLogoSize + (navLogoSize - heroLogoSize) * scrollProgress;
+
+  // Hero: centered; Nav: top-left
+  const heroTop = winHeight * 0.28;
+  const heroCenterX = winWidth / 2;
+  const navTop = 13;
+  const navLeft = 28;
+
+  const logoTop = heroTop + (navTop - heroTop) * scrollProgress;
+  const logoLeft = heroCenterX + (navLeft - heroCenterX) * scrollProgress;
+  const translateX = `${-50 * (1 - scrollProgress)}%`;
+
+  // Text fades out fast
+  const textOpacity = Math.max(1 - scrollProgress * 2.5, 0);
+
+  // Company name in navbar fades IN when logo arrives
+  const navNameOpacity = Math.max(0, (scrollProgress - 0.7) / 0.3);
+
+  return (
+    <div style={{ background: "radial-gradient(ellipse at 50% 40%, #0a0f1e 0%, #030508 100%)", minHeight: "140vh", position: "relative" }}>
+      <StarField />
+
+      {/* ── NAVBAR ── */}
+      <nav style={{
+        position: "fixed", top: 0, left: 0, right: 0, zIndex: 50,
+        height: "60px", display: "flex", alignItems: "center",
+        justifyContent: "space-between",
+        paddingLeft: "28px", paddingRight: "32px",
+        background: scrollProgress > 0.1 ? `rgba(3,5,8,${Math.min(scrollProgress * 0.88, 0.88)})` : "transparent",
+        backdropFilter: scrollProgress > 0.1 ? "blur(10px)" : "none",
+        transition: "background 0.3s",
+        borderBottom: scrollProgress > 0.5 ? `1px solid rgba(201,168,76,${(scrollProgress - 0.5) * 0.4})` : "1px solid transparent",
+      }}>
+        {/* Left: logo placeholder + company name */}
+        <div style={{ display: "flex", alignItems: "center", gap: "10px", flexShrink: 0 }}>
+          <div style={{ width: navLogoSize, height: navLogoSize }} />
+          {/* Company name fades in next to logo when scrolled */}
+          <span style={{
+            fontFamily: "'Cinzel', serif",
+            fontSize: "0.95rem",
+            fontWeight: 700,
+            color: "#C9A84C",
+            letterSpacing: "0.22em",
+            opacity: navNameOpacity,
+            transform: `translateX(${(1 - navNameOpacity) * -10}px)`,
+            transition: "none",
+            whiteSpace: "nowrap",
+            textShadow: "0 0 16px rgba(201,168,76,0.4)",
+            pointerEvents: "none",
+          }}>
+            ZENCODERS
+          </span>
+        </div>
+
+        {/* Right: desktop nav links — always visible on md+, never hamburger */}
+        <ul style={{
+          display: "flex", alignItems: "center",
+          fontFamily: "'Cinzel', serif", listStyle: "none",
+          margin: 0, padding: 0, gap: "2.5rem",
+        }}
+          className="hidden md:flex"
+        >
+          {NAV_LINKS.map((link) => (
+            <li key={link}>
+              {link === "Contact Us" ? (
+                <Link to="/contact" style={{
+                  color: "rgba(255,255,255,0.92)", fontSize: "0.82rem",
+                  fontWeight: 700, letterSpacing: "0.14em",
+                  textDecoration: "none", transition: "color 0.2s",
+                }}
+                  onMouseEnter={e => e.currentTarget.style.color = "#C9A84C"}
+                  onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.92)"}
+                >{link}</Link>
+              ) : (
+                <a href="#" style={{
+                  color: "rgba(255,255,255,0.92)", fontSize: "0.82rem",
+                  fontWeight: 700, letterSpacing: "0.14em",
+                  textDecoration: "none", transition: "color 0.2s",
+                }}
+                  onMouseEnter={e => e.target.style.color = "#C9A84C"}
+                  onMouseLeave={e => e.target.style.color = "rgba(255,255,255,0.92)"}
+                >{link}</a>
+              )}
+            </li>
+          ))}
+        </ul>
+
+        {/* Hamburger: mobile ONLY — explicitly display:none on md+ */}
+        <button
+          onClick={() => setMenuOpen(o => !o)}
+          style={{
+            background: "none", border: "none", padding: 0, cursor: "pointer",
+            display: winWidth >= 768 ? "none" : "flex",
+            alignItems: "center",
+          }}
+          aria-label="Toggle menu"
+        >
+          <HamburgerIcon open={menuOpen} />
+        </button>
+      </nav>
+
+      {/* ── MOBILE BACKDROP ── */}
+      {winWidth < 768 && (
+        <div
+          onClick={() => setMenuOpen(false)}
+          style={{
+            position: "fixed", inset: 0, zIndex: 45,
+            background: "rgba(0,0,0,0.65)", backdropFilter: "blur(4px)",
+            opacity: menuOpen ? 1 : 0,
+            pointerEvents: menuOpen ? "all" : "none",
+            transition: "opacity 0.3s ease",
+          }}
+        />
+      )}
+
+      {/* ── MOBILE DRAWER ── */}
+      {winWidth < 768 && (
+        <div style={{
+          position: "fixed", top: 0, right: 0, zIndex: 50,
+          width: "72vw", maxWidth: "290px", height: "100vh",
+          display: "flex", flexDirection: "column",
+          background: "linear-gradient(160deg, #07101f 0%, #020508 100%)",
+          borderLeft: "1px solid rgba(201,168,76,0.2)",
+          boxShadow: menuOpen ? "-8px 0 40px rgba(0,0,0,0.6)" : "none",
+          transform: menuOpen ? "translateX(0)" : "translateX(100%)",
+          transition: "transform 0.38s cubic-bezier(0.4, 0, 0.2, 1)",
+          paddingTop: "70px", paddingLeft: "28px", paddingRight: "28px", paddingBottom: "36px",
+        }}>
+          <button onClick={() => setMenuOpen(false)} style={{
+            position: "absolute", top: "18px", right: "20px",
+            background: "none", border: "none", cursor: "pointer",
+            color: "rgba(201,168,76,0.65)", fontSize: "1.2rem", lineHeight: 1, padding: 4,
+          }}>✕</button>
+
+          <div style={{ width: "36px", height: "1px", background: "linear-gradient(90deg, #C9A84C 0%, transparent 100%)", marginBottom: "1.8rem" }} />
+
+          <nav>
+            {NAV_LINKS.map((link, i) => (
+              link === "Contact Us" ? (
+                <Link key={link} to="/contact" onClick={() => setMenuOpen(false)} style={{
+                  display: "block", fontFamily: "'Cinzel', serif",
+                  fontSize: "0.92rem", fontWeight: 700, letterSpacing: "0.15em",
+                  color: "rgba(255,255,255,0.82)", padding: "0.9rem 0",
+                  borderBottom: "1px solid rgba(201,168,76,0.1)", textDecoration: "none",
+                  transition: `color 0.2s ease, padding-left 0.2s ease, opacity 0.35s ease ${i * 55 + 80}ms, transform 0.35s ease ${i * 55 + 80}ms`,
+                  opacity: menuOpen ? 1 : 0,
+                  transform: menuOpen ? "translateX(0)" : "translateX(20px)",
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.color = "#C9A84C"; e.currentTarget.style.paddingLeft = "10px"; }}
+                  onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.82)"; e.currentTarget.style.paddingLeft = "0"; }}
+                >{link}</Link>
+              ) : (
+                <a key={link} href="#" onClick={() => setMenuOpen(false)} style={{
+                  display: "block", fontFamily: "'Cinzel', serif",
+                  fontSize: "0.92rem", fontWeight: 700, letterSpacing: "0.15em",
+                  color: "rgba(255,255,255,0.82)", padding: "0.9rem 0",
+                  borderBottom: "1px solid rgba(201,168,76,0.1)", textDecoration: "none",
+                  transition: `color 0.2s ease, padding-left 0.2s ease, opacity 0.35s ease ${i * 55 + 80}ms, transform 0.35s ease ${i * 55 + 80}ms`,
+                  opacity: menuOpen ? 1 : 0,
+                  transform: menuOpen ? "translateX(0)" : "translateX(20px)",
+                }}
+                  onMouseEnter={e => { e.currentTarget.style.color = "#C9A84C"; e.currentTarget.style.paddingLeft = "10px"; }}
+                  onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.82)"; e.currentTarget.style.paddingLeft = "0"; }}
+                >{link}</a>
+              )
+            ))}
+          </nav>
+
+          <div style={{ marginTop: "auto", display: "flex", flexDirection: "column", alignItems: "center", gap: "8px" }}>
+            <div style={{ width: "1px", height: "32px", background: "linear-gradient(to bottom, rgba(201,168,76,0.4), transparent)" }} />
+            <ZenLogo size={42} goldColor="rgba(201,168,76,0.45)" />
+            <p style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "0.58rem", letterSpacing: "0.28em", color: "rgba(201,168,76,0.4)", margin: 0 }}>
+              CODE YOUR DREAMS
+            </p>
+          </div>
+        </div>
+      )}
+
+      {/* ── FLOATING LOGO ── */}
+      <div style={{
+        position: "fixed", zIndex: 50,
+        top: `${logoTop}px`,
+        left: `${logoLeft}px`,
+        transform: `translateX(${translateX})`,
+        pointerEvents: "none",
+        filter: `drop-shadow(0 0 ${12 - scrollProgress * 8}px rgba(201,168,76,0.6))`,
+      }}>
+        <ZenLogo size={logoSize} />
+      </div>
+
+      {/* ── HERO ── */}
+      <div
+        ref={heroRef}
+        style={{
+          minHeight: "100vh", position: "relative", zIndex: 10,
+          display: "flex", flexDirection: "column",
+          alignItems: "center", justifyContent: "center",
+          pointerEvents: "none",
+        }}
+      >
+        <div style={{ height: heroLogoSize + 16 }} />
+
+        <h1 style={{
+          fontFamily: "'Cinzel Decorative', 'Cinzel', serif",
+          fontSize: "clamp(2rem, 6vw, 5rem)",
+          fontWeight: 700, color: "#fff",
+          letterSpacing: "0.25em",
+          opacity: textOpacity,
+          textShadow: "0 0 40px rgba(201,168,76,0.25), 0 2px 8px rgba(0,0,0,0.8)",
+          lineHeight: 1.1, margin: "16px 0 0", textAlign: "center",
+        }}>
+          ZENCODERS
+        </h1>
+
+        <p style={{
+          fontFamily: "'Rajdhani', sans-serif", color: "#C9A84C",
+          letterSpacing: "0.2em", fontSize: "2.8rem",
+          opacity: textOpacity,
+          textShadow: "0 0 20px rgba(201,168,76,0.5)",
+          fontWeight: 700, textTransform: "uppercase",
+          marginTop: "10px", textAlign: "center",
+        }}>
+          Code Your Dreams
+        </p>
+
+        <div style={{
+          marginTop: "1.5rem", width: "120px", height: "1px",
+          background: "linear-gradient(90deg, transparent, #C9A84C, transparent)",
+          opacity: textOpacity,
+        }} />
+
+        <div style={{ marginTop: "3rem", display: "flex", flexDirection: "column", alignItems: "center", gap: "6px", opacity: textOpacity * 0.6 }}>
+          <span style={{ fontFamily: "monospace", fontSize: "0.62rem", color: "#C9A84C", letterSpacing: "0.2em" }}>SCROLL</span>
+          <svg viewBox="0 0 20 20" fill="none" style={{ width: 20, height: 20, animation: "bounce 1.5s infinite" }}>
+            <path d="M5 7l5 5 5-5" stroke="#C9A84C" strokeWidth="1.5" strokeLinecap="round" />
+          </svg>
+        </div>
+      </div>
+
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Cinzel+Decorative:wght@700&family=Rajdhani:wght@600&display=swap');
+        body { margin: 0; overflow-x: hidden; }
+        * { box-sizing: border-box; }
+        @keyframes bounce {
+          0%,100% { transform: translateY(0); }
+          50% { transform: translateY(5px); }
+        }
+      `}</style>
+    </div>
+  );
+}
