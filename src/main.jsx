@@ -9,7 +9,7 @@ import Gallery from './gallery'
 import Vault from './components/academic/vault'
 import Contact from './contact'
 import Buildchella from './Buildchella'
-import Hiring from './Hiring'
+import Hiring from './hiring'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
