@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 
-const NAV_LINKS = ["Home", "Academic", "FAQ", "About", "Contact Us"];
+const NAV_LINKS = ["Home", "Academic", "FAQ", "About", "Contact Us", "Join Us"];
 
 function HamburgerIcon({ open }) {
   return (
@@ -158,24 +158,33 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* Right: desktop nav links — always visible on md+, never hamburger */}
+        {/* Right: desktop nav links */}
         <ul style={{
-          display: "flex", alignItems: "center",
+          display: winWidth >= 768 ? "flex" : "none", alignItems: "center",
           fontFamily: "'Cinzel', serif", listStyle: "none",
           margin: 0, padding: 0, gap: "2.5rem",
         }}
-          className="hidden md:flex"
         >
           {NAV_LINKS.map((link) => (
             <li key={link}>
               {link === "Contact Us" ? (
                 <Link to="/contact" style={{
-                  color: "rgba(255,255,255,0.92)", fontSize: "0.82rem",
+                  color: "#C9A84C", fontSize: "0.82rem",
                   fontWeight: 700, letterSpacing: "0.14em",
                   textDecoration: "none", transition: "color 0.2s",
                 }}
                   onMouseEnter={e => e.currentTarget.style.color = "#C9A84C"}
-                  onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.92)"}
+                  onMouseLeave={e => e.currentTarget.style.color = "#C9A84C"}
+                >{link}</Link>
+              ) : link === "Join Us" ? (
+                <Link to="/hiring" style={{
+                  color: "#10b981", fontSize: "0.82rem",
+                  fontWeight: 700, letterSpacing: "0.14em",
+                  textDecoration: "none", transition: "color 0.2s",
+                  textShadow: "0 0 12px rgba(16,185,129,0.5)",
+                }}
+                  onMouseEnter={e => e.currentTarget.style.color = "#34d399"}
+                  onMouseLeave={e => e.currentTarget.style.color = "#10b981"}
                 >{link}</Link>
               ) : (
                 <a href="#" style={{
@@ -246,24 +255,29 @@ export default function Hero() {
                 <Link key={link} to="/contact" onClick={() => setMenuOpen(false)} style={{
                   display: "block", fontFamily: "'Cinzel', serif",
                   fontSize: "0.92rem", fontWeight: 700, letterSpacing: "0.15em",
-                  color: "rgba(255,255,255,0.82)", padding: "0.9rem 0",
+                  color: "#C9A84C", padding: "0.9rem 0",
                   borderBottom: "1px solid rgba(201,168,76,0.1)", textDecoration: "none",
-                  transition: `color 0.2s ease, padding-left 0.2s ease, opacity 0.35s ease ${i * 55 + 80}ms, transform 0.35s ease ${i * 55 + 80}ms`,
-                  opacity: menuOpen ? 1 : 0,
-                  transform: menuOpen ? "translateX(0)" : "translateX(20px)",
-                }}
-                  onMouseEnter={e => { e.currentTarget.style.color = "#C9A84C"; e.currentTarget.style.paddingLeft = "10px"; }}
-                  onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.82)"; e.currentTarget.style.paddingLeft = "0"; }}
-                >{link}</Link>
+                  opacity: menuOpen ? 1 : 0, transform: menuOpen ? "translateX(0)" : "translateX(20px)",
+                  transition: `opacity 0.35s ease ${i * 55 + 80}ms, transform 0.35s ease ${i * 55 + 80}ms`,
+                }}>{link}</Link>
+              ) : link === "Join Us" ? (
+                <Link key={link} to="/hiring" onClick={() => setMenuOpen(false)} style={{
+                  display: "block", fontFamily: "'Cinzel', serif",
+                  fontSize: "0.92rem", fontWeight: 700, letterSpacing: "0.15em",
+                  color: "#10b981", padding: "0.9rem 0",
+                  borderBottom: "1px solid rgba(16,185,129,0.15)", textDecoration: "none",
+                  opacity: menuOpen ? 1 : 0, transform: menuOpen ? "translateX(0)" : "translateX(20px)",
+                  transition: `opacity 0.35s ease ${i * 55 + 80}ms, transform 0.35s ease ${i * 55 + 80}ms`,
+                  textShadow: "0 0 10px rgba(16,185,129,0.4)",
+                }}>{link}</Link>
               ) : (
                 <a key={link} href="#" onClick={() => setMenuOpen(false)} style={{
                   display: "block", fontFamily: "'Cinzel', serif",
                   fontSize: "0.92rem", fontWeight: 700, letterSpacing: "0.15em",
                   color: "rgba(255,255,255,0.82)", padding: "0.9rem 0",
                   borderBottom: "1px solid rgba(201,168,76,0.1)", textDecoration: "none",
+                  opacity: menuOpen ? 1 : 0, transform: menuOpen ? "translateX(0)" : "translateX(20px)",
                   transition: `color 0.2s ease, padding-left 0.2s ease, opacity 0.35s ease ${i * 55 + 80}ms, transform 0.35s ease ${i * 55 + 80}ms`,
-                  opacity: menuOpen ? 1 : 0,
-                  transform: menuOpen ? "translateX(0)" : "translateX(20px)",
                 }}
                   onMouseEnter={e => { e.currentTarget.style.color = "#C9A84C"; e.currentTarget.style.paddingLeft = "10px"; }}
                   onMouseLeave={e => { e.currentTarget.style.color = "rgba(255,255,255,0.82)"; e.currentTarget.style.paddingLeft = "0"; }}
@@ -271,14 +285,6 @@ export default function Hero() {
               )
             ))}
           </nav>
-
-          <div style={{ marginTop: "auto", display: "flex", flexDirection: "column", alignItems: "center", gap: "8px" }}>
-            <div style={{ width: "1px", height: "32px", background: "linear-gradient(to bottom, rgba(201,168,76,0.4), transparent)" }} />
-            <ZenLogo size={42} goldColor="rgba(201,168,76,0.45)" />
-            <p style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "0.58rem", letterSpacing: "0.28em", color: "rgba(201,168,76,0.4)", margin: 0 }}>
-              CODE YOUR DREAMS
-            </p>
-          </div>
         </div>
       )}
 
