@@ -276,15 +276,17 @@ function TeamModal({ member, onClose }) {
                         display: "flex", gap: 20, padding: "22px 22px 18px",
                         borderBottom: `1px solid rgba(255,255,255,0.07)`,
                         alignItems: "flex-start",
+                        flexDirection: window.innerWidth < 768 ? "column" : "row",
                     }}>
-                        {/* Portrait — separate contained card, exactly like events modal */}
+                        {/* Portrait */}
                         <div style={{
-                            width: 150, flexShrink: 0,
+                            width: window.innerWidth < 768 ? "100%" : 150,
+                            height: window.innerWidth < 768 ? 180 : 200,
+                            flexShrink: 0,
                             borderRadius: 12,
                             background: `linear-gradient(145deg, ${member.bg[0]}, ${member.bg[1]})`,
                             border: `1px solid ${member.accent}33`,
                             overflow: "hidden",
-                            height: 200,
                             boxShadow: `0 8px 30px rgba(0,0,0,0.5), 0 0 20px ${member.accent}18`,
                             display: "flex", flexDirection: "column",
                         }}>
