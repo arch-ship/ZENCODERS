@@ -503,7 +503,7 @@ function EventModal({ event, onClose }) {
     >
       <div style={{
         width: "100%", maxWidth: 860,
-        maxHeight: "78vh",
+        maxHeight: window.innerWidth < 768 ? "95vh" : "78vh",
         background: "linear-gradient(135deg, rgba(8,13,30,0.97) 0%, rgba(13,10,30,0.97) 100%)",
         border: "1px solid rgba(" + accentRGB + ",0.28)",
         borderRadius: 18, overflow: "hidden",
@@ -526,16 +526,19 @@ function EventModal({ event, onClose }) {
           onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; e.currentTarget.style.color = "rgba(255,255,255,0.7)"; }}
         >✕</button>
 
-        {/* Main 2-column layout */}
-        <div style={{ display: "flex", flex: 1, overflow: "hidden" }}>
+        {/* Main layout — stacks on mobile */}
+        <div style={{ display: "flex", flex: 1, overflow: "hidden", flexDirection: window.innerWidth < 768 ? "column" : "row" }}>
 
           {/* ── LEFT: poster + name + prize (locked, no scroll) ── */}
           <div style={{
-            width: 220, flexShrink: 0,
-            borderRight: "1px solid rgba(" + accentRGB + ",0.12)",
-            display: "flex", flexDirection: "column",
+            width: window.innerWidth < 768 ? "100%" : 220,
+            flexShrink: 0,
+            borderRight: window.innerWidth < 768 ? "none" : "1px solid rgba(" + accentRGB + ",0.12)",
+            borderBottom: window.innerWidth < 768 ? "1px solid rgba(" + accentRGB + ",0.12)" : "none",
+            display: "flex", flexDirection: window.innerWidth < 768 ? "row" : "column",
             padding: "16px 14px",
             gap: 12,
+            flexWrap: "wrap",
           }}>
             {/* Poster */}
             <div style={{
@@ -790,7 +793,8 @@ function EventRow({ event, index }) {
         onMouseEnter={() => setHov(true)}
         onMouseLeave={() => setHov(false)}
         style={{
-          display: "flex", gap: "14px", alignItems: "stretch",
+          display: "flex", gap: "10px", alignItems: "stretch",
+          flexWrap: "nowrap",
           borderRadius: "14px",
           background: hov ? "rgba(" + accentRGB + ",0.06)" : "rgba(255,255,255,0.02)",
           border: "1px solid " + (hov ? "rgba(" + accentRGB + ",0.3)" : "rgba(255,255,255,0.05)"),
@@ -800,6 +804,7 @@ function EventRow({ event, index }) {
           boxShadow: hov ? "0 8px 32px rgba(" + accentRGB + ",0.1)" : "none",
           animation: "fadeUp 0.5s ease both",
           animationDelay: index * 80 + "ms",
+          minHeight: 0,
         }}
       >
         <div style={{
@@ -847,13 +852,13 @@ function EventRow({ event, index }) {
           </div>
         </div>
 
-        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", justifyContent: "center", gap: 10, padding: "12px 16px 12px 0", flexShrink: 0 }}>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", justifyContent: "center", gap: 8, padding: "10px 10px 10px 0", flexShrink: 0 }}>
           <button
             onClick={(e) => { e.stopPropagation(); setShowModal(true); }}
             style={{
               fontFamily: "'Rajdhani', sans-serif",
-              fontSize: "0.62rem", fontWeight: 700, letterSpacing: "0.12em",
-              padding: "7px 14px", borderRadius: "8px",
+              fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.1em",
+              padding: "6px 10px", borderRadius: "8px",
               background: hov ? "rgba(" + accentRGB + ",0.18)" : "transparent",
               border: "1px solid " + event.accent,
               color: event.accent, cursor: "pointer",
@@ -861,22 +866,22 @@ function EventRow({ event, index }) {
               boxShadow: hov ? "0 0 16px rgba(" + accentRGB + ",0.3)" : "none",
               whiteSpace: "nowrap",
             }}
-          >View Details</button>
+          >Details</button>
 
           <div style={{ display: "flex", alignItems: "center" }}>
             {["#4f8ef7", "#a855f7", "#00d4ff"].map((c, j) => (
               <div key={j} style={{
-                width: 20, height: 20, borderRadius: "50%",
+                width: 18, height: 18, borderRadius: "50%",
                 background: c, border: "1.5px solid #03050a",
-                marginLeft: j === 0 ? 0 : -6,
+                marginLeft: j === 0 ? 0 : -5,
                 display: "flex", alignItems: "center", justifyContent: "center",
-                fontSize: "0.42rem", color: "#fff", fontWeight: 700,
+                fontSize: "0.4rem", color: "#fff", fontWeight: 700,
                 fontFamily: "'Rajdhani', sans-serif",
               }}>
                 {String.fromCharCode(65 + j)}
               </div>
             ))}
-            <span style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "0.52rem", color: "rgba(255,255,255,0.3)", marginLeft: 6 }}>{event.participants ? "+" + event.participants : "+4"}</span>
+            <span style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "0.48rem", color: "rgba(255,255,255,0.3)", marginLeft: 5 }}>{event.participants ? "+" + event.participants : "+4"}</span>
           </div>
         </div>
       </div>
