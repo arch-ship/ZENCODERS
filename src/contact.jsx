@@ -142,10 +142,10 @@ export default function Contact() {
       </nav>
 
       {/* ── MAIN CONTENT ── */}
-      <div style={{ flex: 1, display: "flex", alignItems: "stretch", padding: "80px 48px 60px", gap: 0, position: "relative", zIndex: 10 }}>
+      <div style={{ flex: 1, display: "flex", alignItems: winWidth < 768 ? "flex-start" : "stretch", flexDirection: winWidth < 768 ? "column" : "row", padding: winWidth < 768 ? "80px 24px 60px" : "80px 48px 60px", gap: 0, position: "relative", zIndex: 10 }}>
 
         {/* ── LEFT PANEL ── */}
-        <div style={{ flex: "0 0 42%", paddingRight: 60, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <div style={{ flex: winWidth < 768 ? "unset" : "0 0 42%", width: winWidth < 768 ? "100%" : "auto", paddingRight: winWidth < 768 ? 0 : 60, display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <h1 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(2.4rem, 5vw, 3.8rem)", fontWeight: 700, color: "#fff", letterSpacing: "0.12em", textTransform: "uppercase", margin: "0 0 28px", lineHeight: 1.1 }}>CONTACT</h1>
 
           <p style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "0.9rem", color: "rgb(255,255,255)", lineHeight: 1.85, letterSpacing: "0.02em", margin: "0 0 48px", maxWidth: 360 }}>
@@ -187,10 +187,10 @@ export default function Contact() {
         </div>
 
         {/* ── DIVIDER ── */}
-        <div style={{ width: "1px", background: "linear-gradient(to bottom, transparent, rgba(201,168,76,0.18) 20%, rgba(201,168,76,0.18) 80%, transparent)", alignSelf: "stretch", flexShrink: 0 }} />
+        <div style={{ width: "1px", display: winWidth < 768 ? "none" : "block", background: "linear-gradient(to bottom, transparent, rgba(201,168,76,0.18) 20%, rgba(201,168,76,0.18) 80%, transparent)", alignSelf: "stretch", flexShrink: 0 }} />
 
         {/* ── RIGHT PANEL ── */}
-        <div style={{ flex: 1, paddingLeft: 60, display: "flex", flexDirection: "column", justifyContent: "center" }}>
+        <div style={{ flex: 1, width: winWidth < 768 ? "100%" : "auto", paddingLeft: winWidth < 768 ? 0 : 60, paddingTop: winWidth < 768 ? 40 : 0, display: "flex", flexDirection: "column", justifyContent: "center" }}>
           <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.6rem, 3.5vw, 2.8rem)", fontWeight: 700, color: "#fff", letterSpacing: "0.1em", textTransform: "uppercase", margin: "0 0 32px", lineHeight: 1.1 }}>CONTACT FORM</h2>
 
           {/* FIX 2: Card with no extra right space — form fields full width, button inside card bounds */}
