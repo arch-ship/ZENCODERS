@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const NAV_LINKS = ["Home", "Academic", "FAQ", "About", "Contact Us"];
+const NAV_LINKS = ["Home", "Academic", "FAQ", "About", "Contact Us", "Join Us"];
 
 function HamburgerIcon({ open }) {
   return (
@@ -81,6 +81,7 @@ export default function Contact() {
   const linkHref = (link) => {
     if (link === "Contact Us") return "/contact";
     if (link === "Home") return "/";
+    if (link === "Join Us") return "/hiring";
     return "#";
   };
 
@@ -126,6 +127,11 @@ export default function Contact() {
                 <Link to={linkHref(link)} style={{ color: link === "Contact Us" ? "#C9A84C" : "rgba(255,255,255,0.92)", fontSize: "0.82rem", fontWeight: 700, letterSpacing: "0.14em", textDecoration: "none", transition: "color 0.2s" }}
                   onMouseEnter={e => e.currentTarget.style.color = "#C9A84C"}
                   onMouseLeave={e => e.currentTarget.style.color = link === "Contact Us" ? "#C9A84C" : "rgba(255,255,255,0.92)"}
+                >{link}</Link>
+              ) : link === "Join Us" ? (
+                <Link to="/hiring" style={{ color: "#10b981", fontSize: "0.82rem", fontWeight: 700, letterSpacing: "0.14em", textDecoration: "none", textShadow: "0 0 12px rgba(16,185,129,0.5)" }}
+                  onMouseEnter={e => e.currentTarget.style.color = "#34d399"}
+                  onMouseLeave={e => e.currentTarget.style.color = "#10b981"}
                 >{link}</Link>
               ) : (
                 <a href="#" style={{ color: "rgba(255,255,255,0.92)", fontSize: "0.82rem", fontWeight: 700, letterSpacing: "0.14em", textDecoration: "none", transition: "color 0.2s" }}
