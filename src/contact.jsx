@@ -202,8 +202,9 @@ export default function Contact() {
           {/* FIX 2: Card with no extra right space — form fields full width, button inside card bounds */}
           <div style={{
             background: "linear-gradient(145deg, rgba(18,18,34,0.96) 0%, rgba(11,11,22,0.98) 100%)",
-            border: "1px solid rgba(201,168,76,0.12)",
-            borderRadius: 4,
+            border: "1px solid rgba(201,168,76,0.25)",
+            borderBottom: "none",
+            borderRadius: "4px 4px 0 0",
             padding: "32px 32px 0 32px",
             boxShadow: "0 32px 80px rgba(0,0,0,0.8), 0 8px 32px rgba(0,0,0,0.5), inset 0 1px 0 rgba(201,168,76,0.06)",
             position: "relative",
@@ -256,7 +257,7 @@ export default function Contact() {
               {/* FIX 3: Button stays inside card, protrudes DOWN on hover */}
               <div style={{
                 marginTop: 28,
-                transform: btnHov ? "translateY(8px)" : "translateY(0px)",
+                transform: btnHov ? "translateY(-4px)" : "translateY(0px)",
                 transition: "transform 0.35s cubic-bezier(0.23,1,0.32,1)",
               }}>
                 <button
@@ -264,10 +265,10 @@ export default function Contact() {
                   onMouseEnter={() => setBtnHov(true)}
                   onMouseLeave={() => setBtnHov(false)}
                   style={{
-                    width: "50%",
+                    width: "100%",
                     background: btnHov ? "rgba(201,168,76,0.12)" : "rgba(201,168,76,0.06)",
-                    border: "1px solid rgba(201,168,76,0.3)",
-                    borderTop: "none",
+                    border: "1px solid rgba(201,168,76,0.25)",
+                    borderTop: btnHov ? "1px solid rgba(201,168,76,0.7)" : "1px solid rgba(201,168,76,0.25)",
                     color: btnHov ? "#C9A84C" : "rgba(255,255,255,0.75)",
                     fontSize: "0.72rem",
                     letterSpacing: "0.22em", textTransform: "uppercase",
