@@ -20,7 +20,7 @@ const DOMAIN_QUESTIONS = {
   "Marketing": [
     { id: "marketing_skills", type: "checkbox", question: "Which areas of marketing are you experienced in?", options: ["Social Media", "Content Writing", "Branding", "Analytics", "Campaign Strategy", "Graphic Design", "Video Editing", "Other"] },
     { id: "marketing_example", type: "textarea", question: "Describe a campaign, post, or marketing idea you've run or would love to run for ZenCoders.", placeholder: "Your idea or past work..." },
-    { id: "marketing_platform", type: "mcq", question: "Which platform do you think ZenCoders should focus on most?", options: ["Instagram", "LinkedIn", "Twitter / X", "YouTube", "Discord"] },
+    { id: "marketing_platform", type: "checkbox", question: "Which platform(s) do you think ZenCoders should focus on most? Select all that apply.", options: ["Instagram", "LinkedIn", "Twitter / X", "YouTube", "Discord"] },
   ],
   "Public Relations": [
     { id: "pr_skills", type: "textarea", question: "Describe your experience with outreach, partnerships, or external communication.", placeholder: "Partnerships, collaborations, college fests, industry connections..." },
@@ -61,6 +61,7 @@ function QuestionCard({ question, answer, onChange, onNext, onBack, canBack, isL
       if (f.validate === "phone") return /^[0-9]{10}$/.test(v);
       if (f.validate === "email") return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
       if (f.validate === "text_only") return /^[a-zA-Z\s.&/-]+$/.test(v);
+      if (f.validate === "batch") { const m = v.match(/^(\d{4})-(\d{2,4})$/); if (!m) return false; const yr = parseInt(m[1]); const now = new Date().getFullYear(); return yr <= now && yr >= 2000; }
       return true;
     });
     return answer && answer.toString().trim() !== "";
@@ -85,9 +86,11 @@ function QuestionCard({ question, answer, onChange, onNext, onBack, canBack, isL
       </h2>
 
       {question.type === "text" && (
-        <input ref={inputRef} type="text" value={answer || ""} onChange={e => onChange(e.target.value)}
-          onKeyDown={e => e.key === "Enter" && canProceed() && onNext()}
-          placeholder={question.placeholder} style={baseInput}
+        <textarea ref={inputRef} value={answer || ""} onChange={e => onChange(e.target.value)}
+          onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey && canProceed()) { e.preventDefault(); onNext(); } }}
+          placeholder={question.placeholder} rows={1}
+          onInput={e => { e.target.style.height = "auto"; e.target.style.height = e.target.scrollHeight + "px"; }}
+          style={{ ...baseInput, resize: "none", lineHeight: 1.7, overflow: "hidden", minHeight: "2.4rem" }}
           onFocus={e => e.target.style.borderBottomColor = "rgba(201,168,76,0.8)"}
           onBlur={e => e.target.style.borderBottomColor = "rgba(201,168,76,0.35)"}
         />
@@ -104,7 +107,7 @@ function QuestionCard({ question, answer, onChange, onNext, onBack, canBack, isL
       )}
 
       {question.type === "details_group" && (
-        <div style={{ display: "flex", flexDirection: "column", gap: 0, paddingLeft: 35, marginTop: 8 }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: 0, paddingLeft: 16, marginTop: 8, borderLeft: "2px solid rgba(201,168,76,0.18)" }}>
           {question.fields.map((field, i) => (
             <div key={field.key} style={{
               display: "flex", alignItems: "center", justifyContent: "space-between",
@@ -114,7 +117,7 @@ function QuestionCard({ question, answer, onChange, onNext, onBack, canBack, isL
               <span style={{
                 fontFamily: "'Rajdhani', sans-serif", fontWeight: 700,
                 fontSize: "0.95rem", color: "rgba(255,255,255,0.85)",
-                letterSpacing: "0.05em", flexShrink: 0, minWidth: 200,
+                letterSpacing: "0.05em", flex: 1,
               }}>{field.label}</span>
 
               {/* plain text input */}
@@ -125,10 +128,11 @@ function QuestionCard({ question, answer, onChange, onNext, onBack, canBack, isL
                   if (field.validate === "phone") return /^[0-9]{10}$/.test(val);
                   if (field.validate === "email") return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
                   if (field.validate === "text_only") return /^[a-zA-Z\s.&/-]+$/.test(val);
+                  if (field.validate === "batch") { const m = val.match(/^(\d{4})-(\d{2,4})$/); if (!m) return false; const yr = parseInt(m[1]); const now = new Date().getFullYear(); return yr <= now && yr >= 2000; }
                   return null;
                 })();
                 return (
-                <label style={{ display: "flex", flexDirection: "column", gap: 3, cursor: "text" }}>
+                <div style={{ display: "flex", flexDirection: "column", gap: 3, flexShrink: 0, width: field.width || "160px" }}>
                   <input
                     type="text"
                     value={val}
@@ -136,11 +140,12 @@ function QuestionCard({ question, answer, onChange, onNext, onBack, canBack, isL
                       const cur = answer && typeof answer === "object" ? answer : {};
                       let v = e.target.value;
                       if (field.validate === "phone") v = v.replace(/[^0-9]/g, "").slice(0, 10);
+                      if (field.validate === "batch") v = v.replace(/[^0-9-]/g, "").slice(0, 7);
                       onChange({ ...cur, [field.key]: v });
                     }}
                     placeholder={field.placeholder}
                     style={{
-                      width: field.width || "160px", flexShrink: 0,
+                      width: "100%",
                       background: "rgba(255,255,255,0.04)",
                       border: isValid === false ? "1px solid rgba(220,80,80,0.6)" : isValid === true ? "1px solid rgba(201,168,76,0.7)" : "1px solid rgba(201,168,76,0.2)",
                       borderRadius: 7, padding: "10px 14px",
@@ -154,11 +159,11 @@ function QuestionCard({ question, answer, onChange, onNext, onBack, canBack, isL
                     onBlur={e => { e.target.style.background = "rgba(255,255,255,0.04)"; }}
                   />
                   {isValid === false && (
-                    <span style={{ fontSize: "0.65rem", color: "rgba(220,100,100,0.9)", fontFamily: "'Rajdhani', sans-serif", letterSpacing: "0.05em" }}>
-                      {field.validate === "phone" ? "Enter a valid 10-digit number" : field.validate === "email" ? "Enter a valid email address" : field.validate === "text_only" ? "Only letters allowed" : ""}
+                    <span style={{ fontSize: "0.62rem", color: "rgba(220,100,100,0.9)", fontFamily: "'Rajdhani', sans-serif", letterSpacing: "0.03em", lineHeight: 1.3 }}>
+                      {field.validate === "phone" ? "Enter a valid 10-digit number" : field.validate === "email" ? "Enter a valid email" : field.validate === "text_only" ? "Only letters allowed" : field.validate === "batch" ? "Format: YYYY-YY (e.g. 2023-27)" : ""}
                     </span>
                   )}
-                </label>
+                </div>
                 );
               })()}
 
@@ -315,9 +320,9 @@ const COMMON_QUESTIONS = [
   { id: "q_name", type: "text", question: "What's your full name?", placeholder: "Enter your full name" },
   { id: "q_details", type: "details_group", question: "Your details", fields: [
     { key: "enrollment", label: "Enrollment No.", placeholder: "e.g. 0101CS221001", width: "200px" },
-    { key: "phone", label: "Phone number", placeholder: "10-digit number", width: "200px", validate: "phone" },
-    { key: "batch", label: "Batch", placeholder: "e.g. 2022–26", width: "200px" },
-    { key: "degree_branch", label: "Degree & Branch", placeholder: "e.g. B.Tech CS", width: "200px", validate: "text_only" },
+    { key: "phone", label: "Phone number", placeholder: "10-digit number", width: "160px", validate: "phone" },
+    { key: "batch", label: "Batch", placeholder: "e.g. 2023-27", width: "120px", validate: "batch" },
+    { key: "degree_branch", label: "Degree & Branch", placeholder: "e.g. B.Tech CS", width: "140px", validate: "text_only" },
   ]},
   { id: "q_details2", type: "details_group", question: "A few more details", fields: [
     { key: "email", label: "Personal E-mail", placeholder: "e.g. johndoe@gmail.com", width: "220px", validate: "email" },
@@ -430,7 +435,7 @@ export default function Hiring() {
         <button onClick={() => navigate("/")} style={{ background: "transparent", border: "1px solid rgba(201,168,76,0.25)", borderRadius: 6, padding: "7px 16px", color: "rgba(201,168,76,0.7)", fontFamily: "'Cinzel', serif", fontSize: "0.65rem", letterSpacing: "0.15em", cursor: "pointer", textTransform: "uppercase" }}>← Home</button>
       </nav>
 
-      <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: winWidth < 768 ? "90px 35px 40px" : "100px 35px 60px", position: "relative", zIndex: 10 }}>
+      <div style={{ flex: 1, display: "flex", alignItems: "center", justifyContent: "center", padding: winWidth < 768 ? "90px 16px 40px" : "100px 24px 60px", position: "relative", zIndex: 10 }}>
         <div style={{ width: "100%", maxWidth: 640 }}>
           <div style={{ marginBottom: 36, textAlign: "center" }}>
             <p style={{ fontSize: "0.58rem", color: "rgba(201,168,76,0.45)", letterSpacing: "0.4em", textTransform: "uppercase", marginBottom: 12 }}>ZenCoders · Open Recruitment</p>
