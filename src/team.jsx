@@ -326,6 +326,8 @@ function Carousel({ team, onSelect, label, accentColor }) {
 // ── Main ──────────────────────────────────────────────────────────────────────
 export default function Team() {
     const [selectedMember, setSelectedMember] = useState(null);
+    const [winWidth, setWinWidth] = useState(window.innerWidth);
+    useEffect(() => { const h = () => setWinWidth(window.innerWidth); window.addEventListener("resize", h); return () => window.removeEventListener("resize", h); }, []);
 
     return (
         <div style={{ minHeight: "100vh", background: "radial-gradient(ellipse at 50% 40%, #0d1020 0%, #050709 100%)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden", position: "relative", padding: "40px 0" }}>
@@ -343,11 +345,20 @@ export default function Team() {
             </div>
 
             {/* Two carousels side by side */}
-            <div style={{ display: "flex", width: "min(1100px, 98vw)", position: "relative", zIndex: 10, alignItems: "flex-start" }}>
+            <div style={{ display: "flex", flexDirection: winWidth < 768 ? "column" : "row", width: "min(1100px, 98vw)", position: "relative", zIndex: 10, alignItems: "flex-start" }}>
                 <Carousel team={TEAM} onSelect={setSelectedMember} label="Sector 62" accentColor="#C9A84C" />
 
-                {/* Vertical divider */}
-                <div style={{ width: 1, alignSelf: "stretch", background: "linear-gradient(to bottom, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent)", flexShrink: 0, margin: "0 8px" }} />
+                {/* Divider — vertical on desktop, horizontal on mobile */}
+                <div style={{
+                  width: winWidth < 768 ? "80%" : 1,
+                  height: winWidth < 768 ? 1 : "auto",
+                  alignSelf: winWidth < 768 ? "center" : "stretch",
+                  background: winWidth < 768
+                    ? "linear-gradient(to right, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent)"
+                    : "linear-gradient(to bottom, transparent, rgba(255,255,255,0.1) 20%, rgba(255,255,255,0.1) 80%, transparent)",
+                  flexShrink: 0,
+                  margin: winWidth < 768 ? "8px 0" : "0 8px",
+                }} />
 
                 <Carousel team={TEAM} onSelect={setSelectedMember} label="Sector 128" accentColor="#a78bfa" />
             </div>
