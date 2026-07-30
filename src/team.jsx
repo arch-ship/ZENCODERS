@@ -72,7 +72,7 @@ const TEAM_62 = [
     },
     {
         id: 2, name: "Yashavi Singhal", role: "Technical head",
-        img: "/assets/Amritanshu.png", bg: ["#6B4A8B", "#4B2A6B"], accent: "#a78bfa",
+       img: "/assets/yashavi.jpg", bg: ["#6B4A8B", "#4B2A6B"], accent: "#a78bfa",
         year: "B.Tech CSE • 2nd Year",
         quote: "I don’t chase bugs—I make them disappear.",
         about: "As the Technical Head of ZenCoders, I turn ambitious ideas into polished digital experiences. I lead the technical team with confidence, creativity, and high standards—making sure every project is functional, seamless, and impossible to ignore.",
@@ -81,7 +81,7 @@ const TEAM_62 = [
     },
     {
         id: 1, name: "Rajat Gupta", role: "Technical Head",
-        img: "/assets/Aryesh.png", bg: ["#8B4A6B", "#6B2A4B"], accent: "#e879a0",
+        img: "/assets/rajat.jpg", bg: ["#8B4A6B", "#6B2A4B"], accent: "#e879a0",
         year: "B.Tech CSE • 2nd Year",
         quote: "Great code is written twice — once to make it work, once to make it right.",
         about: "Rajat Gupta is the Technical Head of ZenCoders, bringing strong problem-solving skills and a sharp technical mindset to the team. He helps lead development initiatives, supports members in building better projects, and ensures that every technical idea is turned into a reliable, high-quality solution.",
