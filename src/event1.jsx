@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 const TABS = ["All Events", "Orientation", "Workshops", "Fest Events"];
 
-const EVENTS = [
+export const EVENTS = [
   {
     id: 1,
     date: "11 September • 2024",
@@ -174,7 +174,7 @@ const EVENTS = [
     title: "Impressions'26 – Build-Chella",
     location: "JIIT Sector 62, Noida",
     accent: "#10b981",
-    tag: "UPCOMING",
+    tag: "PAST",
     category: "Fest Events",
     sortDate: "2026-04-11",
     poster: "https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=400&h=560&fit=crop",
@@ -192,7 +192,7 @@ const EVENTS = [
     title: "Impressions'26 – Blind Founders",
     location: "JIIT Sector 62, Noida",
     accent: "#a855f7",
-    tag: "UPCOMING",
+    tag: "PAST",
     category: "Fest Events",
     sortDate: "2026-04-12",
     poster: "https://images.unsplash.com/photo-1559136555-9303baea8ebd?w=400&h=560&fit=crop",
@@ -202,6 +202,44 @@ const EVENTS = [
     pics: [],
     regLink: "https://forms.google.com",
     regQR: "https://api.qrserver.com/v1/create-qr-code/?size=110x110&data=https://forms.google.com&color=a855f7&bgcolor=0d0a1e",
+  },
+  {
+    id: 10,
+    date: "September • 2026",
+    time: "To Be Announced",
+    title: "Orientation 2026 – Welcome to ZenCoders",
+    location: "JIIT, Noida",
+    accent: "#10b981",
+    tag: "UPCOMING",
+    category: "Orientation",
+    sortDate: "2026-09-15",
+    poster: "https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=400&h=560&fit=crop",
+    description: "The annual ZenCoders orientation returns! Meet the team, discover our domains — Technical, Creative, Management, Marketing, PR, Digital and Cinematics — and learn how you can be part of JIIT's most exciting coding community. Venue and exact date will be announced soon.",
+    prize: null,
+    winners: [],
+    pics: [],
+    participants: null,
+    regLink: null,
+    regQR: "https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=ZenCoders-Orientation-2026&color=10b981&bgcolor=051a10",
+  },
+  {
+    id: 11,
+    date: "October • 2026",
+    time: "To Be Announced",
+    title: "Code Craft 3.0 – C Language Workshop",
+    location: "JIIT, Noida",
+    accent: "#a855f7",
+    tag: "UPCOMING",
+    category: "Workshops",
+    sortDate: "2026-10-05",
+    poster: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=560&fit=crop",
+    description: "The third edition of our flagship C programming workshop series. Build a rock-solid foundation in C — fundamentals, pointers, memory management and problem solving — with hands-on sessions guided by ZenCoders mentors. Registration opens soon!",
+    prize: null,
+    winners: [],
+    pics: [],
+    participants: null,
+    regLink: null,
+    regQR: "https://api.qrserver.com/v1/create-qr-code/?size=140x140&data=ZenCoders-CodeCraft3-2026&color=a855f7&bgcolor=0d0a1e",
   },
 ];
 
@@ -232,7 +270,7 @@ const FEATURED = [...upcomingFeatured, ...pastFeatured].map(e => ({
     : "linear-gradient(135deg, #1a0620 0%, #2a0838 50%, #1a0620 100%)",
 }));
 
-function ParticleField() {
+export function ParticleField() {
   const canvasRef = useRef(null);
   const rafRef = useRef(null);
 
@@ -292,7 +330,7 @@ function ParticleField() {
   );
 }
 
-function HoloBadge({ text, color }) {
+export function HoloBadge({ text, color }) {
   const c = color || "#00d4ff";
   const rgbMap = {
     "#00d4ff": "0,212,255",
@@ -775,7 +813,7 @@ function EventModal({ event, onClose }) {
   );
 }
 
-function EventRow({ event, index }) {
+export function EventRow({ event, index }) {
   const [hov, setHov] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const rgbMap = {
