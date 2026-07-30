@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 const FAQS = [
   {
     question: "What is ZenCoders?",
@@ -45,12 +45,32 @@ export default function FAQ() {
       style={{
         minHeight: "100vh",
         padding: "100px 20px 60px",
-        background:
-          "radial-gradient(ellipse at 50% 25%, #172044 0%, #080b16 48%, #030508 100%)",
+       background:
+  "radial-gradient(ellipse at 50% 35%, #101a37 0%, #060914 45%, #020305 100%)",
+position: "relative",
         color: "#fff",
         fontFamily: "'Rajdhani', sans-serif",
       }}
     >
+      <Link
+  to="/"
+  style={{
+    position: "absolute",
+    top: 24,
+    left: 28,
+    color: "#C9A84C",
+    textDecoration: "none",
+    fontFamily: "'Cinzel', serif",
+    fontSize: "0.75rem",
+    fontWeight: 700,
+    letterSpacing: "0.14em",
+    border: "1px solid rgba(201,168,76,0.5)",
+    borderRadius: 6,
+    padding: "10px 14px",
+  }}
+>
+  ← HOME
+</Link>
       <div style={{ maxWidth: 850, margin: "0 auto" }}>
         <p
           style={{
