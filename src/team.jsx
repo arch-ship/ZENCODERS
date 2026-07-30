@@ -11,21 +11,21 @@ const TEAM = [
         linkedin: "https://www.linkedin.com/in/sheezah-shiraz-33407636a/", github: "https://github.com/sheexah", instagram: "https://www.instagram.com/sheexah/",
     },
     {
-        id: 9, name: "Priyansh Bhardwaj", role: "Marketing Head",
+        id: 9, name: "Aditya Vishoriya", role: "Management Head",
         img: "/assets/Priyansh.png", bg: ["#4B6B2B", "#2B4B0B"], accent: "#a3e635",
         year: "B.Tech CSE • 2nd Year",
-        quote: "Make it so good they cannot scroll past it.",
-        about: "Priyansh heads ZenCoders' marketing with a creative, data-informed approach that has significantly grown the club's visibility across campus and social media. From designing event campaigns to crafting captions that actually get engagement, he understands what resonates with the student community.",
-        skills: ["Digital Marketing", "Branding", "Canva", "Content Creation", "Analytics"],
-        linkedin: "https://linkedin.com/in/priyansh-bhardwaj", github: "https://github.com", instagram: "https://instagram.com",
+        quote: "I don’t just manage the plan—I make sure it delivers.",
+        about: "Aditya is the Management Head of ZenCoders, keeping the team organised, aligned, and ready to turn big ideas into successful events. He coordinates people, plans, and responsibilities with confidence, ensuring every initiative runs smoothly from start to finish.",
+        skills: ["Team Management", "Event Planning", "Leadership", "Communication", "Coordination"],
+        linkedin: "https://www.linkedin.com/in/aditya-vishoriya-b51653380/", github: "https://github.com/vishoriya-aditya", instagram: "https://www.instagram.com/adityavishoriya/",
     },
     {
         id: 10, name: "Dhairya Khandelwal", role: "Digital Head",
         img: "/assets/Tanya.png", bg: ["#6B4A2B", "#4B2A0B"], accent: "#c084fc",
         year: "B.Tech CSE • 2nd Year",
         quote: "The internet is only as good as the people who shape it.",
-        about: "Tanya leads everything digital at ZenCoders — from maintaining the website and managing social media handles to coordinating online event experiences. She combines a strong sense of visual design with technical know-how, ensuring that ZenCoders' digital presence is always sharp, consistent, and engaging.",
-        skills: ["Web Management", "WordPress", "SEO", "Social Media", "Graphic Design"],
+        about: "Dhairya is a dedicated member of ZenCoders who brings creativity, curiosity, and a collaborative spirit to every project. He actively contributes to team initiatives, supports events and campaigns, and is always eager to learn, build, and grow with the community.",
+        skills: ["Team Collaboration", "Event Management", "Content Creation", "Problem Solving", "Communication"],
         linkedin: "https://www.linkedin.com/in/dhairya-khandelwal-928824284/", github: "https://github.com/Dhairyax09", instagram: "https://www.instagram.com/dhairyax09/",
     },
     {
@@ -77,7 +77,7 @@ const TEAM = [
         quote: "I don’t chase bugs—I make them disappear.",
         about: "As the Technical Head of ZenCoders, I turn ambitious ideas into polished digital experiences. I lead the technical team with confidence, creativity, and high standards—making sure every project is functional, seamless, and impossible to ignore.",
         skills: ["Web Development", "React", "UI/UX Design", "Problem Solving", "Technical Leadership"],
-        linkedin: "https://linkedin.com/in/amritanshu", github: "https://github.com", instagram: "https://instagram.com",
+        linkedin: "https://www.linkedin.com/in/yashavi-singhal-60b0763a8?utm_source=share_via&utm_content=profile&utm_medium=member_ios", github: "https://github.com/yashavixsinghal-creator", instagram: "https://www.instagram.com/yashavi.singhal?igsh=aTlsc2RxeG1zaW15&utm_source=qr",
     },
     {
         id: 1, name: "Rajat Gupta", role: "Technical Head",
@@ -86,7 +86,7 @@ const TEAM = [
         quote: "Great code is written twice — once to make it work, once to make it right.",
         about: "Rajat Gupta is the Technical Head of ZenCoders, bringing strong problem-solving skills and a sharp technical mindset to the team. He helps lead development initiatives, supports members in building better projects, and ensures that every technical idea is turned into a reliable, high-quality solution.",
         skills: ["Web Development", "JavaScript", "React", "Problem Solving", "Technical Leadership"],
-        linkedin: "https://linkedin.com/in/aryesh-srivastava", github: "https://github.com", instagram: "https://instagram.com",
+        linkedin: "https://www.linkedin.com/uas/login-submit?_l=en_US", github: "github.com/rajatGupta-qwerty", instagram: "https://instagram.com",
     },
 ];
 
