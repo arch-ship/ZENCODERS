@@ -12,6 +12,7 @@ import Buildchella from './Buildchella'
 import Hiring from './hiring'
 import EventsPage from './events'
 import About from './about'
+import FAQ from './faq'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -31,6 +32,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/hiring" element={<Hiring />} />
         <Route path="/events" element={<EventsPage />} />
         <Route path="/about" element={<About />} />
+        <Route path="/faq" element={<FAQ />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
