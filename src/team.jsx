@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 const TEAM_62 = [
     {
         id: 8, name: "Sheezah Shiraz", role: "Cinematics Head",
-        img: "/assets/Tanishq.png", bg: ["#5A4A2B", "#3A2A0B"], accent: "#fb923c",
+        img: "/assets/sheezah.jpg", bg: ["#5A4A2B", "#3A2A0B"], accent: "#fb923c",
         year: "B.Tech CSE • 2nd Year",
         quote: "Every frame has a story waiting to be told.",
         about: "Sheezah leads the cinematics team at ZenCoders, capturing the energy, creativity, and memorable moments behind every event. From planning visual concepts to filming and editing engaging videos, she transforms each experience into content that reflects the club’s spirit and connects with its community.",
@@ -12,7 +12,7 @@ const TEAM_62 = [
     },
     {
         id: 9, name: "Aditya Vishoriya", role: "Management Head",
-        img: "/assets/Priyansh.png", bg: ["#4B6B2B", "#2B4B0B"], accent: "#a3e635",
+        img: "/assets/adityav.jpg", bg: ["#4B6B2B", "#2B4B0B"], accent: "#a3e635",
         year: "B.Tech CSE • 2nd Year",
         quote: "I don’t just manage the plan—I make sure it delivers.",
         about: "Aditya is the Management Head of ZenCoders, keeping the team organised, aligned, and ready to turn big ideas into successful events. He coordinates people, plans, and responsibilities with confidence, ensuring every initiative runs smoothly from start to finish.",
@@ -21,7 +21,7 @@ const TEAM_62 = [
     },
     {
         id: 10, name: "Dhairya Khandelwal", role: "Digital Head",
-        img: "/assets/Tanya.png", bg: ["#6B4A2B", "#4B2A0B"], accent: "#c084fc",
+        img: "/assets/dhairya.jpg", bg: ["#6B4A2B", "#4B2A0B"], accent: "#c084fc",
         year: "B.Tech CSE • 2nd Year",
         quote: "The internet is only as good as the people who shape it.",
         about: "Dhairya is a dedicated member of ZenCoders who brings creativity, curiosity, and a collaborative spirit to every project. He actively contributes to team initiatives, supports events and campaigns, and is always eager to learn, build, and grow with the community.",
@@ -30,7 +30,7 @@ const TEAM_62 = [
     },
     {
         id: 7, name: "Saumya Sharma", role: "Senior Advisor",
-        img: "/assets/Saumya.png", bg: ["#2B4A6B", "#0B2A4B"], accent: "#38bdf8",
+        img: "/assets/saumya.jpg", bg: ["#2B4A6B", "#0B2A4B"], accent: "#38bdf8",
         year: "B.Tech CSE • 4th Year",
         quote: "Organisation is not about perfection — it is about making space for people to thrive.",
         about: "Saumya is a Senior Advisor at ZenCoders, bringing valuable experience, guidance, and a thoughtful approach to the team. She supports the club’s leadership and members by sharing insights, helping shape initiatives, and ensuring that every project moves forward with clarity and purpose.",        skills: ["Management", "Documentation", "Google Workspace", "HR Coordination", "Planning"],
