@@ -6,10 +6,10 @@ const NAV_LINKS = ["Home", "Events", "Academic", "FAQ", "About", "Contact Us", "
 const ROUTED_LINKS = {
   "Home": "/",
   "Events": "/events",
+  "FAQ": "/faq",
   "About": "/about",
   "Contact Us": "/contact",
   "Join Us": "/hiring",
-  "FAQ": "/faq",
 };
 
 function HamburgerIcon({ open }) {
