@@ -57,7 +57,7 @@ position: "relative",
   style={{
     position: "absolute",
     top: 24,
-    left: 28,
+    right: 28,
     color: "#C9A84C",
     textDecoration: "none",
     fontFamily: "'Cinzel', serif",
