@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import emailjs from "@emailjs/browser";
 import { Link } from "react-router-dom";
 
-const NAV_LINKS = ["Home", "Academic", "FAQ", "About", "Contact Us", "Join Us"];
+const NAV_LINKS = ["Home", "Events", "Academic", "FAQ", "About", "Contact Us", "Join Us"];
 
 function HamburgerIcon({ open }) {
   return (
@@ -97,6 +97,8 @@ export default function Contact() {
     if (link === "Contact Us") return "/contact";
     if (link === "Home") return "/";
     if (link === "Join Us") return "/hiring";
+    if (link === "Events") return "/events";
+    if (link === "About") return "/about";
     return "#";
   };
 
@@ -127,7 +129,7 @@ export default function Contact() {
         <ul style={{ display: winWidth >= 768 ? "flex" : "none", alignItems: "center", fontFamily: "'Cinzel', serif", listStyle: "none", margin: 0, padding: 0, gap: "2.5rem" }}>
           {NAV_LINKS.map((link) => (
             <li key={link}>
-              {link === "Contact Us" || link === "Home" ? (
+              {link === "Contact Us" || link === "Home" || link === "Events" || link === "About" ? (
                 <Link to={linkHref(link)} style={{ color: link === "Contact Us" ? "#C9A84C" : "rgba(255,255,255,0.92)", fontSize: "0.82rem", fontWeight: 700, letterSpacing: "0.14em", textDecoration: "none", transition: "color 0.2s" }}
                   onMouseEnter={e => e.currentTarget.style.color = "#C9A84C"}
                   onMouseLeave={e => e.currentTarget.style.color = link === "Contact Us" ? "#C9A84C" : "rgba(255,255,255,0.92)"}
