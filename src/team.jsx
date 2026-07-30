@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-const TEAM = [
+const TEAM_62 = [
     {
         id: 8, name: "Sheezah Shiraz", role: "Cinematics Head",
         img: "/assets/Tanishq.png", bg: ["#5A4A2B", "#3A2A0B"], accent: "#fb923c",
@@ -87,6 +87,115 @@ const TEAM = [
         about: "Rajat Gupta is the Technical Head of ZenCoders, bringing strong problem-solving skills and a sharp technical mindset to the team. He helps lead development initiatives, supports members in building better projects, and ensures that every technical idea is turned into a reliable, high-quality solution.",
         skills: ["Web Development", "JavaScript", "React", "Problem Solving", "Technical Leadership"],
         linkedin: "https://www.linkedin.com/uas/login-submit?_l=en_US", github: "github.com/rajatGupta-qwerty", instagram: "https://instagram.com",
+    },
+];
+
+//128 team
+const TEAM_128 = [
+    {
+        id: 101,
+        name: "Aryan Negi",
+        role: "Treasurer",
+        img: "/assets/Aryan.png",
+        bg: ["#5A4A2B", "#3A2A0B"],
+        accent: "#fbbf24",
+        year: "JIIT Noida, Sector 128",
+        quote: "Every great idea deserves a solid plan behind it.",
+        about: "Aryan is the Treasurer of ZenCoders Sector 128, managing the club’s resources with responsibility and clarity. He helps ensure that every initiative is planned thoughtfully and supported efficiently.",
+        skills: ["Financial Planning", "Budget Management", "Organisation", "Communication", "Teamwork"],
+        linkedin: "https://linkedin.com",
+        github: "https://github.com",
+        instagram: "https://instagram.com",
+    },
+    {
+        id: 102,
+        name: "Harshita Gupta",
+        role: "Management Head",
+        img: "/assets/Harshita.png",
+        bg: ["#4B6B2B", "#2B4B0B"],
+        accent: "#a3e635",
+        year: "JIIT Noida, Sector 128",
+        quote: "A strong team runs on clarity, trust, and great coordination.",
+        about: "Harshita is the Management Head of ZenCoders Sector 128. She keeps the team organised, coordinates responsibilities, and helps every event move smoothly from planning to execution.",
+        skills: ["Team Management", "Event Planning", "Coordination", "Leadership", "Communication"],
+        linkedin: "https://linkedin.com",
+        github: "https://github.com",
+        instagram: "https://instagram.com",
+    },
+    {
+        id: 103,
+        name: "Abhi Gautam",
+        role: "Technical Head",
+        img: "/assets/Abhi.png",
+        bg: ["#2B4A6B", "#0B2A4B"],
+        accent: "#38bdf8",
+        year: "JIIT Noida, Sector 128",
+        quote: "Good ideas become great when they are built well.",
+        about: "Abhi is the Technical Head of ZenCoders Sector 128, guiding the club’s technical projects and helping members turn creative ideas into reliable digital solutions.",
+        skills: ["Web Development", "Problem Solving", "Technical Leadership", "JavaScript", "Teamwork"],
+        linkedin: "https://linkedin.com",
+        github: "https://github.com",
+        instagram: "https://instagram.com",
+    },
+    {
+        id: 104,
+        name: "Anmol Sharma",
+        role: "Business Head",
+        img: "/assets/Anmol.png",
+        bg: ["#6B4A2B", "#4B2A0B"],
+        accent: "#fb923c",
+        year: "JIIT Noida, Sector 128",
+        quote: "Opportunities grow when people and ideas connect.",
+        about: "Anmol is the Business Head of ZenCoders Sector 128, focused on building meaningful opportunities, partnerships, and initiatives that help the club grow beyond the classroom.",
+        skills: ["Business Development", "Networking", "Communication", "Strategy", "Negotiation"],
+        linkedin: "https://linkedin.com",
+        github: "https://github.com",
+        instagram: "https://instagram.com",
+    },
+    {
+        id: 105,
+        name: "Divisha Agrawal",
+        role: "Creative Head",
+        img: "/assets/Divisha.png",
+        bg: ["#6B2B2B", "#4B0B0B"],
+        accent: "#f87171",
+        year: "JIIT Noida, Sector 128",
+        quote: "Creativity is how ideas become unforgettable.",
+        about: "Divisha is the Creative Head of ZenCoders Sector 128, shaping the visual identity of the club through thoughtful design, fresh ideas, and engaging creative work.",
+        skills: ["Graphic Design", "Branding", "Content Creation", "Canva", "Visual Storytelling"],
+        linkedin: "https://linkedin.com",
+        github: "https://github.com",
+        instagram: "https://instagram.com",
+    },
+    {
+        id: 106,
+        name: "Sheetal Mishra",
+        role: "Digital Head",
+        img: "/assets/Sheetal.png",
+        bg: ["#6B4A8B", "#4B2A6B"],
+        accent: "#c084fc",
+        year: "JIIT Noida, Sector 128",
+        quote: "A strong digital presence makes every idea travel further.",
+        about: "Sheetal is the Digital Head of ZenCoders Sector 128, managing the club’s online presence and helping its events, achievements, and ideas reach the wider student community.",
+        skills: ["Social Media", "Content Strategy", "Digital Marketing", "Communication", "Branding"],
+        linkedin: "https://linkedin.com",
+        github: "https://github.com",
+        instagram: "https://instagram.com",
+    },
+    {
+        id: 107,
+        name: "Jiya Sharma",
+        role: "Cinematography Head",
+        img: "/assets/Jiya.png",
+        bg: ["#8B4A6B", "#6B2A4B"],
+        accent: "#e879a0",
+        year: "JIIT Noida, Sector 128",
+        quote: "Every moment becomes memorable when it is captured with purpose.",
+        about: "Jiya is the Cinematography Head of ZenCoders Sector 128, capturing the energy of the club through engaging photos and videos that tell the story behind every event.",
+        skills: ["Videography", "Photography", "Video Editing", "Storytelling", "Content Creation"],
+        linkedin: "https://linkedin.com",
+        github: "https://github.com",
+        instagram: "https://instagram.com",
     },
 ];
 
@@ -343,7 +452,7 @@ export default function Team() {
 
             {/* Two carousels side by side */}
             <div style={{ display: "flex", flexDirection: winWidth < 768 ? "column" : "row", width: "min(1100px, 98vw)", position: "relative", zIndex: 10, alignItems: "flex-start" }}>
-                <Carousel team={TEAM} onSelect={setSelectedMember} label="Sector 62" accentColor="#C9A84C" />
+                <Carousel team={TEAM_62} onSelect={setSelectedMember} label="Sector 62" accentColor="#C9A84C" />
 
                 {/* Divider — vertical on desktop, horizontal on mobile */}
                 <div style={{
@@ -357,8 +466,7 @@ export default function Team() {
                   margin: winWidth < 768 ? "8px 0" : "0 8px",
                 }} />
 
-                <Carousel team={TEAM} onSelect={setSelectedMember} label="Sector 128" accentColor="#a78bfa" />
-            </div>
+               <Carousel team={TEAM_128} onSelect={setSelectedMember} label="Sector 128" accentColor="#a78bfa" /></div>
 
             {selectedMember && <TeamModal member={selectedMember} onClose={() => setSelectedMember(null)} />}
 
