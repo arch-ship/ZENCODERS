@@ -9,6 +9,7 @@ const ROUTED_LINKS = {
   "About": "/about",
   "Contact Us": "/contact",
   "Join Us": "/hiring",
+  "FAQ": "/faq",
 };
 
 function HamburgerIcon({ open }) {
