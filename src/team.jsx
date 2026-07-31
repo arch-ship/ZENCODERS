@@ -2,6 +2,15 @@ import { useEffect, useRef, useState } from "react";
 
 const TEAM_62 = [
     {
+        id: 2, name: "Yashavi Singhal", role: "Technical head",
+       img: "/assets/yashavi.jpg", bg: ["#6B4A8B", "#4B2A6B"], accent: "#a78bfa",
+        year: "B.Tech CSE • 2nd Year",
+        quote: "I don’t chase bugs—I make them disappear.",
+        about: "As the Technical Head of ZenCoders, I turn ambitious ideas into polished digital experiences. I lead the technical team with confidence, creativity, and high standards—making sure every project is functional, seamless, and impossible to ignore.",
+        skills: ["Web Development", "React", "UI/UX Design", "Problem Solving", "Technical Leadership"],
+        linkedin: "https://www.linkedin.com/in/yashavi-singhal-60b0763a8?utm_source=share_via&utm_content=profile&utm_medium=member_ios", github: "https://github.com/yashavixsinghal-creator", instagram: "https://www.instagram.com/yashavi.singhal?igsh=aTlsc2RxeG1zaW15&utm_source=qr",
+    },
+    {
     id: 11,
     name: "Avni Gupta",
     role: "Treasurer",
@@ -100,15 +109,7 @@ const TEAM_62 = [
         skills: ["Leadership", "Team Management", "Strategic Planning", "Public Speaking", "Community Building"],
         linkedin: "https://www.linkedin.com/in/keshav-agrawal-02b4832bb/", github: "https://github.com/CleverCoder2024", instagram: "https://www.instagram.com/_keshav0505/",
     },
-    {
-        id: 2, name: "Yashavi Singhal", role: "Technical head",
-       img: "/assets/yashavi.jpg", bg: ["#6B4A8B", "#4B2A6B"], accent: "#a78bfa",
-        year: "B.Tech CSE • 2nd Year",
-        quote: "I don’t chase bugs—I make them disappear.",
-        about: "As the Technical Head of ZenCoders, I turn ambitious ideas into polished digital experiences. I lead the technical team with confidence, creativity, and high standards—making sure every project is functional, seamless, and impossible to ignore.",
-        skills: ["Web Development", "React", "UI/UX Design", "Problem Solving", "Technical Leadership"],
-        linkedin: "https://www.linkedin.com/in/yashavi-singhal-60b0763a8?utm_source=share_via&utm_content=profile&utm_medium=member_ios", github: "https://github.com/yashavixsinghal-creator", instagram: "https://www.instagram.com/yashavi.singhal?igsh=aTlsc2RxeG1zaW15&utm_source=qr",
-    },
+  
     {
         id: 1, name: "Rajat Gupta", role: "Technical Head",
         img: "/assets/rajat.jpg", bg: ["#8B4A6B", "#6B2A4B"], accent: "#e879a0",
@@ -483,7 +484,53 @@ const rotateZ = isMobile ? 0 : Math.cos(angle) * -18;
         rafRef.current = requestAnimationFrame(animate);
         return () => cancelAnimationFrame(rafRef.current);
     }, [team]);
+if (isMobile) {
+  return (
+    <div style={{ width: "100%", padding: "0 0 12px" }}>
+      <div style={{ display: "flex", alignItems: "center", gap: 10, padding: "0 16px", marginBottom: 12 }}>
+        <div style={{ flex: 1, height: 1, background: `linear-gradient(to right, transparent, ${accentColor}44)` }} />
+        <span style={{ fontFamily: "'Cinzel', serif", fontSize: "0.7rem", fontWeight: 700, color: accentColor, letterSpacing: "0.2em", textTransform: "uppercase", whiteSpace: "nowrap" }}>
+          {label}
+        </span>
+        <div style={{ flex: 1, height: 1, background: `linear-gradient(to left, transparent, ${accentColor}44)` }} />
+      </div>
 
+      <div style={{ display: "flex", gap: 16, overflowX: "auto", padding: "10px 16px 24px", scrollSnapType: "x mandatory" }}>
+        {team.map((member) => (
+          <button
+            key={member.id}
+            type="button"
+            onClick={() => onSelect(member)}
+            style={{
+              flex: "0 0 72vw",
+              maxWidth: 260,
+              padding: 0,
+              border: `1px solid ${member.accent}55`,
+              borderRadius: 16,
+              overflow: "hidden",
+              background: "rgba(7, 9, 18, 0.9)",
+              cursor: "pointer",
+              scrollSnapAlign: "center",
+            }}
+          >
+            <div style={{ height: 300 }}>
+              <Avatar name={member.name} img={member.img} bg={member.bg} />
+            </div>
+
+            <div style={{ padding: "12px 10px 14px", textAlign: "center" }}>
+              <p style={{ fontFamily: "'Cinzel', serif", fontSize: "0.72rem", fontWeight: 700, color: "#fff", margin: 0 }}>
+                {member.name}
+              </p>
+              <p style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "0.68rem", color: member.accent, margin: "5px 0 0", textTransform: "uppercase" }}>
+                {member.role}
+              </p>
+            </div>
+          </button>
+        ))}
+      </div>
+    </div>
+  );
+}
     return (
         <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", minWidth: 0 }}>
             {/* Campus label */}
