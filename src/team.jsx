@@ -568,7 +568,7 @@ export default function Team() {
     useEffect(() => { const h = () => setWinWidth(window.innerWidth); window.addEventListener("resize", h); return () => window.removeEventListener("resize", h); }, []);
 
     return (
-        <div style={{ minHeight: "100vh", background: "radial-gradient(ellipse at 50% 40%, #0d1020 0%, #050709 100%)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden", position: "relative", padding: "40px 0" }}>
+        <div style={{ minHeight: "100vh", background: "radial-gradient(ellipse at 50% 40%, #0d1020 0%, #050709 100%)", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", overflow: "hidden", position: "relative", padding: "120px 0 40px" }}>
             {/* Atmosphere blobs */}
             <div style={{ position: "absolute", width: 400, height: 300, borderRadius: "50%", background: "#3b1d6e", filter: "blur(90px)", opacity: 0.4, top: "5%", left: "0", pointerEvents: "none", animation: "blob1 10s ease-in-out infinite" }} />
             <div style={{ position: "absolute", width: 300, height: 300, borderRadius: "50%", background: "#1a3060", filter: "blur(90px)", opacity: 0.4, top: "50%", right: "0", pointerEvents: "none", animation: "blob2 12s ease-in-out infinite" }} />
