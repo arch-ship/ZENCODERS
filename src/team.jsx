@@ -448,10 +448,10 @@ function Avatar({ name, img, bg }) {
 
 // ── Single carousel ───────────────────────────────────────────────────────────
 function Carousel({ team, onSelect, label, accentColor, isMobile }) {
-  const carouselCardW = isMobile ? 96 : CARD_W;
-  const carouselCardH = isMobile ? 128 : CARD_H;
-  const carouselRX = isMobile ? 105 : RX;
-  const carouselRY = isMobile ? 46 : RY;   
+ const carouselCardW = isMobile ? 86 : CARD_W;
+const carouselCardH = isMobile ? 114 : CARD_H;
+const carouselRX = isMobile ? 80 : RX;
+const carouselRY = isMobile ? 35 : RY;  
     const angleRef = useRef(0);
     const rafRef = useRef(null);
     const hoveredRef = useRef(null);
@@ -470,8 +470,8 @@ function Carousel({ team, onSelect, label, accentColor, isMobile }) {
             const scale = 0.52 + 0.55 * t;
             const zIndex = Math.round(50 + sinA * 50);
             const opacity = 0.3 + 0.7 * t;
-            const rotateY = -Math.cos(angle) * 30;
-            const rotateZ = Math.cos(angle) * -18;
+            const rotateY = isMobile ? 0 : -Math.cos(angle) * 30;
+const rotateZ = isMobile ? 0 : Math.cos(angle) * -18;
             const brightness = 0.4 + 0.65 * t;
             return { ...member, x, y, scale, zIndex, opacity, rotateY, rotateZ, brightness };
         });
