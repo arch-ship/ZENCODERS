@@ -575,8 +575,8 @@ export default function Team() {
             <div style={{ position: "absolute", left: 0, top: "15%", bottom: "15%", width: "3px", background: "linear-gradient(to bottom, transparent, #22c55e 40%, #22c55e 60%, transparent)", borderRadius: "2px" }} />
 
             {/* Header */}
-            <div style={{ textAlign: "center", zIndex: 100, position: "relative", marginBottom: 32 }}>
-                <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: 800, color: "#fff", margin: 0, letterSpacing: "0.04em", textShadow: "0 2px 40px rgba(255,255,255,0.15)" }}>Meet our Team</h2>
+<div style={{ textAlign: "center", zIndex: 10, position: "relative", marginTop: 100, marginBottom: 32 }}>
+    <h2 style={{ fontFamily: "'Cinzel', serif", fontSize: "clamp(1.8rem, 4vw, 3rem)", fontWeight: 800, color: "#fff", margin: 0, letterSpacing: "0.04em", textShadow: "0 2px 40px rgba(255,255,255,0.15)" }}>Meet our Team</h2>
                 <p style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "clamp(0.82rem, 1.8vw, 0.98rem)", color: "rgba(255,255,255,0.48)", marginTop: 10, maxWidth: 480, lineHeight: 1.7, letterSpacing: "0.02em", margin: "10px auto 0" }}>
                     A diverse team of passionate professionals driving innovation and excellence in every project.
                 </p>
