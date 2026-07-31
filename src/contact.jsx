@@ -224,49 +224,41 @@ export default function Contact() {
           <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
             <div>
               <p style={{ fontFamily: "'Cinzel', serif", fontSize: "1rem", fontWeight: 700, color: "#C9A84C", letterSpacing: "0.14em", textTransform: "uppercase", margin: "0 0 4px" }}>Address</p>
-<a
-  href="https://www.instagram.com/zencodersjiit62/"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    display: "block",
-    width: "fit-content",
-    position: "relative",
-    zIndex: 20,
-    cursor: "pointer",
-    fontFamily: "'Rajdhani', sans-serif",
-    fontSize: "1rem",
-    color: "#C9A84C",
-    margin: "0 0 8px",
-    letterSpacing: "0.04em",
-    textDecoration: "underline",
-    textUnderlineOffset: "4px",
-  }}
->
-  JIIT Campus, Sector 62, Noida
-</a>
+<p style={{ margin: "0 0 12px" }}>
+  <a
+    href="https://www.instagram.com/zencodersjiit62/"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      fontFamily: "'Rajdhani', sans-serif",
+      fontSize: "1rem",
+      color: "#C9A84C",
+      letterSpacing: "0.04em",
+      textDecoration: "underline",
+      cursor: "pointer",
+    }}
+  >
+    JIIT Campus, Sector 62, Noida
+  </a>
+</p>
 
-<a
-  href="https://www.instagram.com/zencodersjiit128/"
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    display: "block",
-    width: "fit-content",
-    position: "relative",
-    zIndex: 20,
-    cursor: "pointer",
-    fontFamily: "'Rajdhani', sans-serif",
-    fontSize: "1rem",
-    color: "#C9A84C",
-    margin: 0,
-    letterSpacing: "0.04em",
-    textDecoration: "underline",
-    textUnderlineOffset: "4px",
-  }}
->
-  JIIT Campus, Sector 128, Noida
-</a>
+<p style={{ margin: 0 }}>
+  <a
+    href="https://www.instagram.com/zencodersjiit128/"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{
+      fontFamily: "'Rajdhani', sans-serif",
+      fontSize: "1rem",
+      color: "#C9A84C",
+      letterSpacing: "0.04em",
+      textDecoration: "underline",
+      cursor: "pointer",
+    }}
+  >
+    JIIT Campus, Sector 128, Noida
+  </a>
+</p>
             </div>
             {[
               { label: "Email", value: "zencodersmanagement@gmail.com" },
