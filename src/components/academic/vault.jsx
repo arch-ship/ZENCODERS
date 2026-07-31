@@ -634,7 +634,6 @@ function Hero() {
             { label:"📄 PYQ Papers", href:"#pyq", color:"#7c3aed", glow:"rgba(124,58,237,0.5)" },
             { label:"📊 Lecture PPTs", href:"#ppts", color:"#3b82f6", glow:"rgba(59,130,246,0.5)" },
             { label:"🚀 Event Material", href:"#events", color:"#f472b6", glow:"rgba(244,114,182,0.5)" },
-            { label:"← Home", href:"/", color:"#10b981", glow:"rgba(16,185,129,0.5)" },
           ].map((btn,i) => (
             <a key={btn.href} href={btn.href} style={{ textDecoration:"none" }}>
               <motion.button
