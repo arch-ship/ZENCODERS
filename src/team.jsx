@@ -107,7 +107,7 @@ const TEAM_62 = [
     },
     {
         id: 3, name: "Keshav Agarwal", role: "President",
-        img: "/assets/KESHAVVV.jpg", bg: ["#3a3a5a", "#1a1a3a"], accent: "#60a5fa",
+        img: "/assets/keshav.jpg", bg: ["#3a3a5a", "#1a1a3a"], accent: "#60a5fa",
         year: "BCA • 3rd Year",
         quote: "A community that codes together, grows together.",
         about: "Keshav is the President of ZenCoders, leading the club with vision, energy, and a strong commitment to building a thriving tech community. He coordinates the team, guides major initiatives, and creates opportunities for members to learn, collaborate, and turn ideas into impactful projects.",
@@ -223,7 +223,7 @@ const TEAM_128 = [
         id: 104,
         name: "Anmol Sharma",
         role: "Technical Head",
-        img: "/assets/anmolsharma.jpg",
+        img: "/assets/anmol.jpg",
         bg: ["#6B4A2B", "#4B2A0B"],
         accent: "#fb923c",
         year: "MCA • 2nd Year",
