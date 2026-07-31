@@ -224,11 +224,24 @@ export default function Contact() {
           <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
             <div>
               <p style={{ fontFamily: "'Cinzel', serif", fontSize: "1rem", fontWeight: 700, color: "#C9A84C", letterSpacing: "0.14em", textTransform: "uppercase", margin: "0 0 4px" }}>Address</p>
-            <a
+<a
   href="https://www.instagram.com/zencodersjiit62/"
   target="_blank"
   rel="noopener noreferrer"
-  style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "1rem", color: "hsl(0,0%,100%)", margin: "0 0 2px", letterSpacing: "0.04em", textDecoration: "none" }}
+  style={{
+    display: "block",
+    width: "fit-content",
+    position: "relative",
+    zIndex: 20,
+    cursor: "pointer",
+    fontFamily: "'Rajdhani', sans-serif",
+    fontSize: "1rem",
+    color: "#C9A84C",
+    margin: "0 0 8px",
+    letterSpacing: "0.04em",
+    textDecoration: "underline",
+    textUnderlineOffset: "4px",
+  }}
 >
   JIIT Campus, Sector 62, Noida
 </a>
@@ -237,7 +250,20 @@ export default function Contact() {
   href="https://www.instagram.com/zencodersjiit128/"
   target="_blank"
   rel="noopener noreferrer"
-  style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "1rem", color: "hsl(0,0%,100%)", margin: 0, letterSpacing: "0.04em", textDecoration: "none" }}
+  style={{
+    display: "block",
+    width: "fit-content",
+    position: "relative",
+    zIndex: 20,
+    cursor: "pointer",
+    fontFamily: "'Rajdhani', sans-serif",
+    fontSize: "1rem",
+    color: "#C9A84C",
+    margin: 0,
+    letterSpacing: "0.04em",
+    textDecoration: "underline",
+    textUnderlineOffset: "4px",
+  }}
 >
   JIIT Campus, Sector 128, Noida
 </a>
