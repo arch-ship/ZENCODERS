@@ -503,12 +503,33 @@ function Hero() {
     window.addEventListener("mousemove", handle);
     return () => window.removeEventListener("mousemove", handle);
   }, [mouseX, mouseY]);
+  
 
   return (
     <motion.section ref={heroRef}
       style={{ minHeight:"100vh", display:"flex", alignItems:"center", justifyContent:"center",
         position:"relative", zIndex:1, padding:"0 24px", y, opacity, scale, overflow:"hidden" }}
     >
+      <a
+  href="/"
+  style={{
+    position: "absolute",
+    top: 24,
+    right: 28,
+    zIndex: 20,
+    padding: "10px 18px",
+    borderRadius: 24,
+    border: "1px solid rgba(16,185,129,0.55)",
+    background: "rgba(16,185,129,0.10)",
+    color: "#34d399",
+    fontFamily: "'Orbitron', sans-serif",
+    fontSize: "0.65rem",
+    letterSpacing: 1.4,
+    textDecoration: "none",
+  }}
+>
+  ← HOME
+</a>
       {/* ── Aceternity Lamp Effect ── */}
       <LampEffect />
 
