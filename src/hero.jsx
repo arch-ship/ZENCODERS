@@ -323,6 +323,7 @@ export default function Hero() {
         left: `${logoLeft}px`,
         transform: `translateX(${translateX})`,
         pointerEvents: "none",
+      display: menuOpen && winWidth < 768 ? "none" : "block",
         filter: `drop-shadow(0 0 ${12 - scrollProgress * 8}px rgba(201,168,76,0.6))`,
       }}>
         <ZenLogo size={logoSize} />
