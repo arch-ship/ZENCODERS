@@ -88,7 +88,7 @@ const TEAM_62 = [
     },
     {
         id: 5, name: "Aditya Garg", role: "Senior Advisor",
-        img: "/assets/Aditya.png", bg: ["#2B6B4A", "#0B4B2A"], accent: "#34d399",
+        img: "/assets/adityagarg.jpg", bg: ["#2B6B4A", "#0B4B2A"], accent: "#34d399",
         year: "BCA • 4th Year",
         quote: "Clean code is not written, it is rewritten.",
         about: "Aditya is a Senior Advisor at ZenCoders who brings strong technical experience and practical guidance to the team. He mentors members, supports development initiatives, and helps the club build impactful projects through thoughtful problem-solving and collaboration.",        skills: ["React", "System Design", "C++", "Open Source", "DSA"],
@@ -162,7 +162,7 @@ const TEAM_128 = [
     id: 110,
     name: "Aditya Garg",
     role: "Senior Advisor",
-    img: "/assets/Aditya.png",
+    img: "/assets/adityagarg.jpg",
     bg: ["#2B6B4A", "#0B4B2A"],
     accent: "#34d399",
     year: "BCA • 4th Year",
