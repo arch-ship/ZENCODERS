@@ -447,7 +447,11 @@ function Avatar({ name, img, bg }) {
 }
 
 // ── Single carousel ───────────────────────────────────────────────────────────
-function Carousel({ team, onSelect, label, accentColor }) {
+function Carousel({ team, onSelect, label, accentColor, isMobile }) {
+  const carouselCardW = isMobile ? 96 : CARD_W;
+  const carouselCardH = isMobile ? 128 : CARD_H;
+  const carouselRX = isMobile ? 105 : RX;
+  const carouselRY = isMobile ? 46 : RY;   
     const angleRef = useRef(0);
     const rafRef = useRef(null);
     const hoveredRef = useRef(null);
@@ -459,8 +463,8 @@ function Carousel({ team, onSelect, label, accentColor }) {
     useEffect(() => {
         const compute = () => team.map((member, i) => {
             const angle = angleRef.current + (i / team.length) * Math.PI * 2;
-            const x = Math.cos(angle) * RX;
-            const y = Math.sin(angle) * RY;
+             const x = Math.cos(angle) * carouselRX;
+            const y = Math.sin(angle) * carouselRY;
             const sinA = Math.sin(angle);
             const t = (sinA + 1) / 2;
             const scale = 0.52 + 0.55 * t;
@@ -490,7 +494,7 @@ function Carousel({ team, onSelect, label, accentColor }) {
             </div>
 
             {/* Carousel stage */}
-            <div style={{ position: "relative", width: "100%", height: 340, display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <div style={{ position: "relative", width: "100%", height: isMobile ? 280 : 340, display: "flex", alignItems: "center", justifyContent: "center" }}>
                 {cards.map((member) => {
                     const isHov = hovered === member.id;
                     return (
@@ -501,8 +505,8 @@ function Carousel({ team, onSelect, label, accentColor }) {
                             onClick={() => onSelect(member)}
                             style={{
                                 position: "absolute", left: "50%", top: "50%",
-                                width: CARD_W, height: CARD_H,
-                                marginLeft: -CARD_W / 2, marginTop: -CARD_H / 2,
+                                width: carouselCardW, height: carouselCardH,
+                                marginLeft: -carouselCardW / 2, marginTop: -carouselCardH / 2,
                                 zIndex: isHov ? 200 : member.zIndex,
                                 opacity: isHov ? 1 : member.opacity,
                                 cursor: "pointer",
@@ -557,8 +561,7 @@ export default function Team() {
 
             {/* Two carousels side by side */}
             <div style={{ display: "flex", flexDirection: winWidth < 768 ? "column" : "row", width: "min(1100px, 98vw)", position: "relative", zIndex: 10, alignItems: "flex-start" }}>
-                <Carousel team={TEAM_62} onSelect={setSelectedMember} label="Sector 62" accentColor="#C9A84C" />
-
+<Carousel team={TEAM_62} onSelect={setSelectedMember} label="Sector 62" accentColor="#C9A84C" isMobile={winWidth < 768} />
                 {/* Divider — vertical on desktop, horizontal on mobile */}
                 <div style={{
                   width: winWidth < 768 ? "80%" : 1,
@@ -571,8 +574,8 @@ export default function Team() {
                   margin: winWidth < 768 ? "8px 0" : "0 8px",
                 }} />
 
-               <Carousel team={TEAM_128} onSelect={setSelectedMember} label="Sector 128" accentColor="#a78bfa" /></div>
-
+<Carousel team={TEAM_128} onSelect={setSelectedMember} label="Sector 128" accentColor="#a78bfa" isMobile={winWidth < 768} />
+                </div>
             {selectedMember && <TeamModal member={selectedMember} onClose={() => setSelectedMember(null)} />}
 
             <style>{`
