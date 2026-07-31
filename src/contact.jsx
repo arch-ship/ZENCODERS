@@ -66,25 +66,30 @@ export default function Contact() {
 
   const handleChange = (e) => setForm({ ...form, [e.target.name]: e.target.value });
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
-          from_name:    form.name,
-          from_email:   form.email,
-          phone:        form.phone,
-          message:      form.message,
-          reply_to:     form.email,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
-      );
-    } catch (err) { console.error("EmailJS error:", err); }
+  e.preventDefault();
+
+  try {
+    await emailjs.send(
+      import.meta.env.VITE_EMAILJS_SERVICE_ID,
+      import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+      {
+        from_name: form.name,
+        from_email: form.email,
+        phone: form.phone,
+        message: form.message,
+        reply_to: form.email,
+      },
+      import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+    );
+
     setSent(true);
-    setTimeout(() => setSent(false), 3000);
     setForm({ name: "", phone: "", email: "", message: "" });
-  };
+    setTimeout(() => setSent(false), 3000);
+  } catch (err) {
+    console.error("EmailJS error:", err);
+    alert("Message could not be sent. Please try again.");
+  }
+};
 
   const fields = [
     { name: "name",    placeholder: "Your name" },
@@ -147,11 +152,67 @@ export default function Contact() {
               )}
             </li>
           ))}
+          
         </ul>
         <button onClick={() => setMenuOpen(o => !o)} style={{ background: "none", border: "none", padding: 0, cursor: "pointer", display: winWidth >= 768 ? "none" : "flex", alignItems: "center" }} aria-label="Toggle menu">
           <HamburgerIcon open={menuOpen} />
         </button>
       </nav>
+      {menuOpen && winWidth < 768 && (
+  <div
+    style={{
+      position: "fixed",
+      top: "60px",
+      left: 0,
+      right: 0,
+      zIndex: 40,
+      display: "flex",
+      flexDirection: "column",
+      padding: "16px 28px",
+      gap: "18px",
+      background: "rgba(3,5,8,0.97)",
+      borderBottom: "1px solid rgba(201,168,76,0.18)",
+    }}
+  >
+    {NAV_LINKS.map((link) => {
+      const href = linkHref(link);
+
+      return href === "#" ? (
+        <a
+          key={link}
+          href="#"
+          onClick={() => setMenuOpen(false)}
+          style={{
+            color: "rgba(255,255,255,0.92)",
+            fontFamily: "'Cinzel', serif",
+            fontSize: "0.82rem",
+            fontWeight: 700,
+            letterSpacing: "0.14em",
+            textDecoration: "none",
+          }}
+        >
+          {link}
+        </a>
+      ) : (
+        <Link
+          key={link}
+          to={href}
+          onClick={() => setMenuOpen(false)}
+          style={{
+            color: link === "Contact Us" ? "#C9A84C" : "rgba(255,255,255,0.92)",
+            fontFamily: "'Cinzel', serif",
+            fontSize: "0.82rem",
+            fontWeight: 700,
+            letterSpacing: "0.14em",
+            textDecoration: "none",
+          }}
+        >
+          {link}
+        </Link>
+      );
+    })}
+  </div>
+)}
 
       <div style={{ flex: 1, display: "flex", alignItems: winWidth < 768 ? "flex-start" : "stretch", flexDirection: winWidth < 768 ? "column" : "row", padding: winWidth < 768 ? "80px 24px 60px" : "80px 48px 60px", gap: 0, position: "relative", zIndex: 10 }}>
 
@@ -163,8 +224,23 @@ export default function Contact() {
           <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
             <div>
               <p style={{ fontFamily: "'Cinzel', serif", fontSize: "1rem", fontWeight: 700, color: "#C9A84C", letterSpacing: "0.14em", textTransform: "uppercase", margin: "0 0 4px" }}>Address</p>
-              <p style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "1rem", color: "hsl(0,0%,100%)", margin: "0 0 2px", letterSpacing: "0.04em" }}>JIIT Campus, Sector 62, Noida</p>
-              <p style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "1rem", color: "hsl(0,0%,100%)", margin: 0, letterSpacing: "0.04em" }}>JIIT Campus, Sector 128, Noida</p>
+            <a
+  href="https://www.instagram.com/zencodersjiit62/"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "1rem", color: "hsl(0,0%,100%)", margin: "0 0 2px", letterSpacing: "0.04em", textDecoration: "none" }}
+>
+  JIIT Campus, Sector 62, Noida
+</a>
+
+<a
+  href="https://www.instagram.com/zencodersjiit128/"
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{ fontFamily: "'Rajdhani', sans-serif", fontSize: "1rem", color: "hsl(0,0%,100%)", margin: 0, letterSpacing: "0.04em", textDecoration: "none" }}
+>
+  JIIT Campus, Sector 128, Noida
+</a>
             </div>
             {[
               { label: "Email", value: "zencodersmanagement@gmail.com" },
