@@ -6,6 +6,7 @@ const NAV_LINKS = ["Home", "Events", "Academic", "FAQ", "About", "Contact Us", "
 const ROUTED_LINKS = {
   "Home": "/",
   "Events": "/events",
+  "Academic": "/academic",
   "FAQ": "/faq",
   "About": "/about",
   "Contact Us": "/contact",
