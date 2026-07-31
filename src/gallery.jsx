@@ -1,31 +1,17 @@
 import { useState } from "react";
 
 const CARDS_ROW1 = [
-  { id: "r1a", label: "Conference",    emoji: "🎤", color: "#1a2a4a", wide: false },
-  { id: "r1b", label: "Workshop",      emoji: "💡", color: "#2a1a4a", wide: false },
-  { id: "r1c", label: "Networking",    emoji: "🤝", color: "#1a3a2a", wide: false },
-  { id: "r1d", label: "Summit",        emoji: "🏆", color: "#3a2a1a", wide: false },
-  { id: "r1e", label: "Panel",         emoji: "🎯", color: "#1a1a4a", wide: false },
-  { id: "r1f", label: "Gala Night",    emoji: "🌟", color: "#3a1a1a", wide: false },
-  { id: "r1a2", label: "Conference",   emoji: "🎤", color: "#1a2a4a", wide: false },
-  { id: "r1b2", label: "Workshop",     emoji: "💡", color: "#2a1a4a", wide: false },
-  { id: "r1c2", label: "Networking",   emoji: "🤝", color: "#1a3a2a", wide: false },
-  { id: "r1d2", label: "Summit",       emoji: "🏆", color: "#3a2a1a", wide: false },
-  { id: "r1e2", label: "Panel",        emoji: "🎯", color: "#1a1a4a", wide: false },
-  { id: "r1f2", label: "Gala Night",   emoji: "🌟", color: "#3a1a1a", wide: false },
+  { id: "bf1", label: "Blind Founders", image: "/assets/blindfounders1.JPG", wide: false },
+  { id: "bf5", label: "Blind Founders", image: "/assets/blindfounders5.JPG", wide: false },
+  { id: "bf1-copy", label: "Blind Founders", image: "/assets/blindfounders1.JPG", wide: false },
+  { id: "bf5-copy", label: "Blind Founders", image: "/assets/blindfounders5.JPG", wide: false },
 ];
 
 const CARDS_ROW2 = [
-  { id: "r2a", label: "Grand Assembly", emoji: "🎭", color: "#0a1a3a", wide: true  },
-  { id: "r2b", label: "Meetup",         emoji: "👥", color: "#2a1a3a", wide: false },
-  { id: "r2c", label: "Seminar",        emoji: "📚", color: "#1a3a3a", wide: false },
-  { id: "r2d", label: "Expo",           emoji: "🚀", color: "#3a3a1a", wide: false },
-  { id: "r2e", label: "Keynote",        emoji: "🎵", color: "#1a2a3a", wide: false },
-  { id: "r2a2", label: "Grand Assembly",emoji: "🎭", color: "#0a1a3a", wide: true  },
-  { id: "r2b2", label: "Meetup",        emoji: "👥", color: "#2a1a3a", wide: false },
-  { id: "r2c2", label: "Seminar",       emoji: "📚", color: "#1a3a3a", wide: false },
-  { id: "r2d2", label: "Expo",          emoji: "🚀", color: "#3a3a1a", wide: false },
-  { id: "r2e2", label: "Keynote",       emoji: "🎵", color: "#1a2a3a", wide: false },
+  { id: "bc1", label: "Buildchella", image: "/assets/buildchella1.JPG", wide: false },
+  { id: "bc4", label: "Buildchella", image: "/assets/buildchella4.JPG", wide: false },
+  { id: "bc1-copy", label: "Buildchella", image: "/assets/buildchella1.JPG", wide: false },
+  { id: "bc4-copy", label: "Buildchella", image: "/assets/buildchella4.JPG", wide: false },
 ];
 
 export default function Gallery() {
@@ -97,7 +83,9 @@ export default function Gallery() {
                 width: card.wide ? 300 : 190,
                 height: 155,
                 borderRadius: "14px",
-                background: `linear-gradient(135deg, ${card.color}dd, ${card.color}88)`,
+               backgroundImage: `url(${card.image})`,
+               backgroundSize: "cover",
+                backgroundPosition: "center",
                 border: "1px solid rgba(0,212,255,0.12)",
                 display: "flex",
                 flexDirection: "column",
@@ -119,7 +107,6 @@ export default function Gallery() {
                 e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.4)";
               }}
             >
-              <div style={{ fontSize: "1.8rem" }}>{card.emoji}</div>
               <span style={{
                 fontFamily: "'Rajdhani', sans-serif",
                 fontSize: "0.65rem", fontWeight: 700,
@@ -163,7 +150,9 @@ export default function Gallery() {
                 width: card.wide ? 300 : 190,
                 height: 155,
                 borderRadius: "14px",
-                background: `linear-gradient(135deg, ${card.color}dd, ${card.color}88)`,
+               backgroundImage: `url(${card.image})`,
+backgroundSize: "cover",
+backgroundPosition: "center",
                 border: "1px solid rgba(168,85,247,0.12)",
                 display: "flex",
                 flexDirection: "column",
@@ -184,9 +173,7 @@ export default function Gallery() {
                 e.currentTarget.style.borderColor = "rgba(168,85,247,0.12)";
                 e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.4)";
               }}
-            >
-              <div style={{ fontSize: "1.8rem" }}>{card.emoji}</div>
-              <span style={{
+            >              <span style={{
                 fontFamily: "'Rajdhani', sans-serif",
                 fontSize: "0.65rem", fontWeight: 700,
                 color: "rgba(255,255,255,0.5)",
