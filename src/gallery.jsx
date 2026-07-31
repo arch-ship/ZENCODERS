@@ -5,6 +5,14 @@ const CARDS_ROW1 = [
   { id: "bf5", label: "Blind Founders", image: "/assets/blindfounders5.JPG", wide: false },
   { id: "bf1-copy", label: "Blind Founders", image: "/assets/blindfounders1.JPG", wide: false },
   { id: "bf5-copy", label: "Blind Founders", image: "/assets/blindfounders5.JPG", wide: false },
+  { id: "bf1-2", label: "Blind Founders", image: "/assets/blindfounders1.JPG", wide: false },
+{ id: "bf5-2", label: "Blind Founders", image: "/assets/blindfounders5.JPG", wide: false },
+  { id: "bf1-3", label: "Blind Founders", image: "/assets/blindfounders1.JPG", wide: false },
+{ id: "bf5-3", label: "Blind Founders", image: "/assets/blindfounders5.JPG", wide: false },
+{ id: "bf1-4", label: "Blind Founders", image: "/assets/blindfounders1.JPG", wide: false },
+{ id: "bf5-4", label: "Blind Founders", image: "/assets/blindfounders5.JPG", wide: false },
+{ id: "bf1-5", label: "Blind Founders", image: "/assets/blindfounders1.JPG", wide: false },
+{ id: "bf5-5", label: "Blind Founders", image: "/assets/blindfounders5.JPG", wide: false },
 ];
 
 const CARDS_ROW2 = [
@@ -12,6 +20,14 @@ const CARDS_ROW2 = [
   { id: "bc4", label: "Buildchella", image: "/assets/buildchella4.JPG", wide: false },
   { id: "bc1-copy", label: "Buildchella", image: "/assets/buildchella1.JPG", wide: false },
   { id: "bc4-copy", label: "Buildchella", image: "/assets/buildchella4.JPG", wide: false },
+  { id: "bc1-2", label: "Buildchella", image: "/assets/buildchella1.JPG", wide: false },
+{ id: "bc4-2", label: "Buildchella", image: "/assets/buildchella4.JPG", wide: false },
+  { id: "bc1-3", label: "Buildchella", image: "/assets/buildchella1.JPG", wide: false },
+{ id: "bc4-3", label: "Buildchella", image: "/assets/buildchella4.JPG", wide: false },
+{ id: "bc1-4", label: "Buildchella", image: "/assets/buildchella1.JPG", wide: false },
+{ id: "bc4-4", label: "Buildchella", image: "/assets/buildchella4.JPG", wide: false },
+{ id: "bc1-5", label: "Buildchella", image: "/assets/buildchella1.JPG", wide: false },
+{ id: "bc4-5", label: "Buildchella", image: "/assets/buildchella4.JPG", wide: false },
 ];
 
 export default function Gallery() {
