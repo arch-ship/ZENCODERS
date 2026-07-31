@@ -1,1 +1,28 @@
 @import "tailwindcss";
+/* Keep every page within the phone screen width */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  overflow-x: hidden;
+}
+
+/* Images should shrink instead of overflowing on small screens */
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Smaller side spacing on phones */
+@media (max-width: 767px) {
+  body {
+    min-width: 0;
+  }
+}
