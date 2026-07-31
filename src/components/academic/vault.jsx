@@ -820,39 +820,80 @@ function Footer() {
             <p style={{ color:"#64748b",fontSize:"0.82rem",lineHeight:1.8,fontFamily:"'Exo 2',sans-serif" }}>
               The coding club that launched into the void and brought back knowledge for everyone.
             </p>
-            <div style={{ display:"flex",gap:10,marginTop:16 }}>
-              {["𝕏","in","GH","YT"].map(s=>(
-                <motion.div key={s} whileHover={{ scale:1.2,y:-2,borderColor:"#7c3aed" }}
-                  style={{ width:36,height:36,borderRadius:"50%",display:"flex",alignItems:"center",
-                    justifyContent:"center",border:"1px solid rgba(255,255,255,0.1)",
-                    color:"#64748b",fontSize:"0.72rem",cursor:"pointer" }}>
-                  {s}
-                </motion.div>
-              ))}
-            </div>
+            
+            <div style={{ display:"flex", gap:10, marginTop:16 }}>
+  <motion.a
+    href="https://www.linkedin.com/company/zencoders/"
+    target="_blank"
+    rel="noopener noreferrer"
+    whileHover={{ scale:1.2, y:-2, borderColor:"#7c3aed" }}
+    style={{
+      width:36, height:36, borderRadius:"50%", display:"flex",
+      alignItems:"center", justifyContent:"center",
+      border:"1px solid rgba(255,255,255,0.1)",
+      color:"#64748b", fontSize:"0.72rem", textDecoration:"none",
+    }}
+  >
+    in
+  </motion.a>
+</div>
+          
           </div>
-          {[
-            { title:"Academic", links:["PYQ Papers","Lecture PPTs","Event Materials","Lab Manuals"] },
-            { title:"Club", links:["About Us","Team","Events","Join ZenCoders"] },
-            { title:"Contact", links:["Discord Server","Email Us","Instagram","College Portal"] },
-          ].map(col=>(
-            <div key={col.title}>
-              <h4 style={{ fontFamily:"'Orbitron',sans-serif",fontSize:"0.66rem",color:"#a78bfa",
-                letterSpacing:2.5,marginBottom:18,margin:"0 0 18px" }}>{col.title}</h4>
-              {col.links.map(l=>(
-                <motion.a key={l}
-                  href={l === "Join ZenCoders" ? undefined : "#"}
-                  onClick={l === "Join ZenCoders" ? () => navigate("/hiring") : undefined}
-                  whileHover={{ x:4,color:"#94a3b8" }}
-                  style={{ display:"block",
-                    color: l === "Join ZenCoders" ? "#a78bfa" : "#64748b",
-                    textDecoration:"none",fontSize:"0.83rem",
-                    marginBottom:12,fontFamily:"'Exo 2',sans-serif",cursor:"pointer" }}>
-                  {l}{l === "Join ZenCoders" ? " →" : ""}
-                </motion.a>
-              ))}
-            </div>
-          ))}
+         {[
+  {
+    title: "Academic",
+    links: [
+      { label: "PYQ Papers", href: "#pyq" },
+      { label: "Lecture PPTs", href: "#ppts" },
+      { label: "Event Materials", href: "#events" },
+      { label: "Lab Manuals", href: "/academic" },
+    ],
+  },
+  {
+    title: "Club",
+    links: [
+      { label: "About Us", href: "/about" },
+      { label: "Team", href: "/team" },
+      { label: "Events", href: "/events" },
+      { label: "Join ZenCoders", href: "/hiring" },
+    ],
+  },
+  {
+    title: "Contact",
+    links: [
+      { label: "Email Us", href: "mailto:zencodersmanagement@gmail.com" },
+      { label: "Instagram", href: "https://www.instagram.com/zencodersjiit62/", external: true },
+      { label: "College Portal", href: "https://www.jiit.ac.in/existing-student/life-@-jiit/jiit-hub/zencoders", external: true },
+    ],
+  },
+].map(col => (
+  <div key={col.title}>
+    <h4 style={{ fontFamily:"'Orbitron',sans-serif", fontSize:"0.66rem", color:"#a78bfa", letterSpacing:2.5, margin:"0 0 18px" }}>
+      {col.title}
+    </h4>
+
+    {col.links.map(link => (
+      <motion.a
+        key={link.label}
+        href={link.href}
+        target={link.external ? "_blank" : undefined}
+        rel={link.external ? "noopener noreferrer" : undefined}
+        whileHover={{ x:4, color:"#94a3b8" }}
+        style={{
+          display:"block",
+          color: link.label === "Join ZenCoders" ? "#a78bfa" : "#64748b",
+          textDecoration:"none",
+          fontSize:"0.83rem",
+          marginBottom:12,
+          fontFamily:"'Exo 2',sans-serif",
+          cursor:"pointer",
+        }}
+      >
+        {link.label}{link.label === "Join ZenCoders" ? " →" : ""}
+      </motion.a>
+    ))}
+  </div>
+))}
         </div>
         <div style={{ borderTop:"1px solid rgba(255,255,255,0.06)",paddingTop:26,
           display:"flex",justifyContent:"space-between",flexWrap:"wrap",gap:10 }}>
