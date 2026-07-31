@@ -92,7 +92,7 @@ const TEAM_62 = [
         year: "BCA • 4th Year",
         quote: "Clean code is not written, it is rewritten.",
         about: "Aditya is a Senior Advisor at ZenCoders who brings strong technical experience and practical guidance to the team. He mentors members, supports development initiatives, and helps the club build impactful projects through thoughtful problem-solving and collaboration.",        skills: ["React", "System Design", "C++", "Open Source", "DSA"],
-        linkedin: "https://linkedin.com/in/aditya-garg",
+        linkedin: "www.linkedin.com/in/aditya-garg16",
         github: "https://github.com/astral-architect",
         instagram: "https://www.instagram.com/aditya16_____/",
     },
