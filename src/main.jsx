@@ -33,6 +33,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/events" element={<EventsPage />} />
         <Route path="/about" element={<About />} />
         <Route path="/faq" element={<FAQ />} />
+        <Route path="/team" element={<Team />} />
         <Route path="/academic" element={<Vault />} />
       </Routes>
     </BrowserRouter>
