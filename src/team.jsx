@@ -247,7 +247,7 @@ const TEAM_128 = [
         id: 104,
         name: "Anmol Sharma",
         role: "Technical Head",
-        img: "/assets/anmolsharma.png",
+        img: "/assets/anmolsharma.jpg",
         bg: ["#6B4A2B", "#4B2A0B"],
         accent: "#fb923c",
         year: "JIIT Noida, Sector 128",
