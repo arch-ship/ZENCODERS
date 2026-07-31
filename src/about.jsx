@@ -72,8 +72,9 @@ export default function About() {
 
         {/* ── HERO ── */}
         <div style={{ textAlign: "center", marginBottom: 64, animation: "aboutFadeUp 0.6s ease both" }}>
-          <p style={{ fontSize: "0.58rem", color: "rgba(201,168,76,0.5)", letterSpacing: "0.4em", textTransform: "uppercase", marginBottom: 14 }}>Who We Are</p>
-          <h1 style={{
+<p style={{ fontSize: "0.1rem", color: "rgba(201,168,76,0.5)", letterSpacing: "0.4em", textTransform: "uppercase", marginBottom: 14 }}>
+  Who We Are
+</p>          <h1 style={{
             fontSize: "clamp(1.8rem, 5vw, 3rem)", fontWeight: 900, color: "#fff",
             letterSpacing: "0.18em", margin: "0 0 16px",
             textShadow: "0 0 40px rgba(201,168,76,0.3)",
