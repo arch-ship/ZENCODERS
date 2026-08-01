@@ -23,7 +23,7 @@ const TEAM_62 = [
     quote: "Every great idea deserves a smart plan behind it.",
     about: "Avni is the Treasurer of ZenCoders Sector 62, managing the club’s resources with responsibility and attention to detail. She helps ensure that every initiative is planned efficiently and supported smoothly.",
     skills: ["Budget Management", "Financial Planning", "Organisation", "Communication", "Teamwork"],
-    linkedin: "www.linkedin.com/in/avni-gupta-91064b2b5",
+    linkedin: "https://www.linkedin.com/in/avni-gupta-91064b2b5",
     github: "https://github.com/Avnig12",
     instagram: "https://www.instagram.com/avni_007_gupta?utm_source=qr&igsh=N3BubXk1ZXFleGZj",
 },
