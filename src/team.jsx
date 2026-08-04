@@ -2,6 +2,17 @@ import { useEffect, useRef, useState } from "react";
 
 const TEAM_62 = [
     {
+        id: 1, name: "Tanushree Jain", role: "Marketing head",
+       img: "/assets/tanushree.jpg", bg: ["#6B4A8B", "#4B2A6B"], accent: "#a78bfa",
+        year: "BBA • 3rd Year",
+        quote: "I don't just build solutions—I build the people and systems that make innovation possible.",
+        about: "As the Head of ZenCoders, I lead with vision, strategy, and technical excellence. I empower the team to transform complex challenges into impactful digital solutions while fostering a culture of innovation, collaboration, and continuous growth.",
+        skills: [ "Technical Leadership", "Full-Stack Development","System Architecture","Team Management","Problem Solving"],
+        linkedin: "https://www.linkedin.com/in/tanushree-jain-974bb02ba?utm_source=share_via&utm_content=profile&utm_medium=member_android",
+        github: "https://github.com", 
+        instagram: "https://www.instagram.com/tj.tanushree?igsh=MTJpMndoZ2Nxem1ycw==",
+    }{
+    
         id: 2, name: "Yashavi Singhal", role: "Technical head",
        img: "/assets/yashavi.jpg", bg: ["#6B4A8B", "#4B2A6B"], accent: "#a78bfa",
         year: "B.Tech CSE • 2nd Year",
@@ -129,6 +140,21 @@ const TEAM_62 = [
 //128 team
 const TEAM_128 = [
     {
+
+    id: 107,
+    name: "Ishaan Sahi",
+    role: "Organising Secretary",
+    img: "/assets/ishaan.jpg",
+    bg: ["#2B4A6B", "#0B2A4B"],
+    accent: "#38bdf8",
+    year: "B.Tech CSE • 3rd Year",
+    quote: "Great code builds products, but great leadership builds the future.",
+    about: "As the Head of ZenCoders, I drive innovation by combining technical expertise with strong leadership. My role is to guide talented developers, maintain exceptional quality standards, and ensure that every project delivers both performance and excellence.",
+    skills: ["Leadership","Software Architecture","Web Development","Strategic Thinking", "Mentorship"],
+    linkedin: "https://www.linkedin.com/in/ishaan-sahi/",
+    github: "https://github.com/IshaanSahi",
+    instagram: "https://www.instagram.com/ishaan_sahi/",
+        
     id: 108,
     name: "Saumya Sharma",
     role: "Senior Advisor",
