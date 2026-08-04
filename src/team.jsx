@@ -11,7 +11,8 @@ const TEAM_62 = [
         linkedin: "https://www.linkedin.com/in/tanushree-jain-974bb02ba?utm_source=share_via&utm_content=profile&utm_medium=member_android",
         github: "https://github.com", 
         instagram: "https://www.instagram.com/tj.tanushree?igsh=MTJpMndoZ2Nxem1ycw==",
-    }{
+    },
+    {
     
         id: 2, name: "Yashavi Singhal", role: "Technical head",
        img: "/assets/yashavi.jpg", bg: ["#6B4A8B", "#4B2A6B"], accent: "#a78bfa",
@@ -154,6 +155,8 @@ const TEAM_128 = [
     linkedin: "https://www.linkedin.com/in/ishaan-sahi/",
     github: "https://github.com/IshaanSahi",
     instagram: "https://www.instagram.com/ishaan_sahi/",
+    },
+    {
         
     id: 108,
     name: "Saumya Sharma",
