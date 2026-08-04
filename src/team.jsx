@@ -3,10 +3,10 @@ import { useEffect, useRef, useState } from "react";
 const TEAM_62 = [
     {
         id: 29, name: "Tanushree Jain", role: "Marketing head",
-       img: "/assets/tanushree.jpg", bg: ["#6B4A8B", "#4B2A6B"], accent: "#a78bfa",
+        img: "/assets/tanushree.jpg", bg: ["#6B4A8B", "#4B2A6B"], accent: "#a78bfa",
         year: "BBA • 3rd Year",
         quote: "I don't just build solutions—I build the people and systems that make innovation possible.",
-        about: "As the Head of ZenCoders, I lead with vision, strategy, and technical excellence. I empower the team to transform complex challenges into impactful digital solutions while fostering a culture of innovation, collaboration, and continuous growth.",
+        about: "As the Marketing Head of ZenCoders, I lead with vision, strategy, and technical excellence. I empower the team to transform complex challenges into impactful digital solutions while fostering a culture of innovation, collaboration, and continuous growth.",
         skills: [ "Technical Leadership", "Full-Stack Development","System Architecture","Team Management","Problem Solving"],
         linkedin: "https://www.linkedin.com/in/tanushree-jain-974bb02ba?utm_source=share_via&utm_content=profile&utm_medium=member_android",
         github: "https://github.com", 
