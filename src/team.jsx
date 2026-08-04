@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 const TEAM_62 = [
     {
-        id: 1, name: "Tanushree Jain", role: "Marketing head",
+        id: 29, name: "Tanushree Jain", role: "Marketing head",
        img: "/assets/tanushree.jpg", bg: ["#6B4A8B", "#4B2A6B"], accent: "#a78bfa",
         year: "BBA • 3rd Year",
         quote: "I don't just build solutions—I build the people and systems that make innovation possible.",
@@ -141,7 +141,7 @@ const TEAM_62 = [
 const TEAM_128 = [
     {
 
-    id: 107,
+    id: 129,
     name: "Ishaan Sahi",
     role: "Organising Secretary",
     img: "/assets/ishaan.jpg",
