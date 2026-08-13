@@ -111,11 +111,11 @@ const TEAM_62 = [
     {
         id: 4, name: "Parth Sharma", role: "Organising Secretary",
         img: "/assets/parthos.jpg", bg: ["#8B5A2B", "#6B3A0B"], accent: "#fbbf24",
-        year: "B.Tech CSE • 4th Year",
+        year: "B.Tech CSE • 3rd Year",
         quote: "Behind every great event is a thousand small decisions made right.",
         about: "Parth Sharma is the Organising Secretary of ZenCoders, ensuring that every event and initiative runs smoothly from planning to execution. He coordinates teams, manages logistics, and keeps everything on track with a calm, organised approach that helps turn ideas into successful experiences.",
         skills: ["Event Management", "Operations", "Communication", "MS Office", "Team Coordination"],
-        linkedin: "https://www.linkedin.com/in/parth-sharma-170189343?utm_source=share_via&utm_content=profile&utm_medium=member_android", github: "https://github.com/parth7830", instagram: "https://instagram.com",
+        linkedin: "https://www.linkedin.com/in/parth-sharma-170189343?utm_source=share_via&utm_content=profile&utm_medium=member_android", github: "https://github.com/parth7830", instagram: "https://www.instagram.com/parth_sharma2311?igsh=MWl1MmZhd3FvM2dyMg%3D%3D",
     },
     {
         id: 3, name: "Keshav Agarwal", role: "President",
