@@ -115,7 +115,7 @@ const TEAM_62 = [
         quote: "Behind every great event is a thousand small decisions made right.",
         about: "Parth Sharma is the Organising Secretary of ZenCoders, ensuring that every event and initiative runs smoothly from planning to execution. He coordinates teams, manages logistics, and keeps everything on track with a calm, organised approach that helps turn ideas into successful experiences.",
         skills: ["Event Management", "Operations", "Communication", "MS Office", "Team Coordination"],
-        linkedin: "https://linkedin.com/in/shivansh-gupta", github: "https://github.com", instagram: "https://instagram.com",
+        linkedin: "https://www.linkedin.com/in/parth-sharma-170189343?utm_source=share_via&utm_content=profile&utm_medium=member_android", github: "https://github.com/parth7830", instagram: "https://instagram.com",
     },
     {
         id: 3, name: "Keshav Agarwal", role: "President",
@@ -124,7 +124,7 @@ const TEAM_62 = [
         quote: "A community that codes together, grows together.",
         about: "Keshav is the President of ZenCoders, leading the club with vision, energy, and a strong commitment to building a thriving tech community. He coordinates the team, guides major initiatives, and creates opportunities for members to learn, collaborate, and turn ideas into impactful projects.",
         skills: ["Leadership", "Team Management", "Strategic Planning", "Public Speaking", "Community Building"],
-        linkedin: "https://www.linkedin.com/in/keshav-agrawal-02b4832bb/", github: "https://github.com/CleverCoder2024", instagram: "https://www.instagram.com/_keshav0505/",
+        linkedin: "https://www.linkedin.com/in/keshav-agrawal-02b4832bb/", github: "https://github.com/CleverCoder2024", instagram: "https://www.instagram.com/parth_sharma2311?igsh=MWl1MmZhd3FvM2dyMg==",
     },
   
     {
